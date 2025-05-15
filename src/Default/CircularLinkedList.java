@@ -6,4 +6,5 @@ public class CircularLinkedList {
 	//aptal ece
 	//salakkkkkkkkklar
 	//öfghjkblszedrhfzlkbveurdlıtvngusuerdnflugsyroıughıs
+	//abdhdjdjdjdjdjjdjd
 }
