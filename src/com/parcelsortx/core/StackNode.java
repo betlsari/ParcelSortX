@@ -4,7 +4,7 @@ import com.parcelsortx.model.Parcel;
 
 public class StackNode {
 	Parcel parcel;
-	StackNode next;
+    StackNode next;
 	
 	public StackNode(Parcel parcel) {
 		this.parcel = parcel;
