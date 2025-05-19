@@ -15,6 +15,7 @@ public class Parcel{
 	private Status status;
 	
 	
+	
 	public Parcel(String parcelID,String destinationCity,int priority, String size, int arrivalTrick, Status status) {
 		this.parcelID=parcelID;
 		this.destinationCity=destinationCity;
@@ -87,6 +88,8 @@ public class Parcel{
 	           "Arrival Trick: " + arrivalTrick+"\n" + 
 	           "Status: " + status + "}";
 	}
+
+	
 	
 	
 	
