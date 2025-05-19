@@ -26,7 +26,7 @@ public class Parcel{
 	}
 	
 	//getter ve setter kullanımı - private değişkenlere erişmek için getter ve stter kullanıyoruz. Public yapıp kullanmayabilirdik ama güvenli olmaz.
-	public String getParcelID(){ 
+	public String getParcelID(){
 		return parcelID;
 	}
 	public void setParcelID(String parcelID) {
