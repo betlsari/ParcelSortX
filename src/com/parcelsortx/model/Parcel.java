@@ -15,6 +15,7 @@ public class Parcel{
 	private Status status;
 	
 	
+	
 	public Parcel(String parcelID,String destinationCity,int priority, String size, int arrivalTrick, Status status) {
 		this.parcelID=parcelID;
 		this.destinationCity=destinationCity;
@@ -25,7 +26,7 @@ public class Parcel{
 	}
 	
 	//getter ve setter kullanımı - private değişkenlere erişmek için getter ve stter kullanıyoruz. Public yapıp kullanmayabilirdik ama güvenli olmaz.
-	public String getParcelID(){
+	public String getParcelID(){ 
 		return parcelID;
 	}
 	public void setParcelID(String parcelID) {
@@ -87,6 +88,8 @@ public class Parcel{
 	           "Arrival Trick: " + arrivalTrick+"\n" + 
 	           "Status: " + status + "}";
 	}
+
+	
 	
 	
 	
