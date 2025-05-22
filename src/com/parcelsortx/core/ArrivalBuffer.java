@@ -2,18 +2,18 @@ package com.parcelsortx.core;
 
 import com.parcelsortx.model.Parcel;
 
-public class ArrivalBuffer {
-	private static class Node{
-		Parcel data;
-		Node next;
+public class ArrivalBuffer<T extends Parcel> { //T tipini Parcel sınıfıyla sınırladık getParcelID vs kullanabilmek için 
+	private static class Node<T>{
+		T data;
+		Node<T> next;
 		
-		public Node(Parcel data){
+		public Node(T data){
 			this.data=data;
 			this.next=null;
 		}
 	}
-	private Node head;
-	private Node tail;
+	private Node<T> head;
+	private Node<T> tail;
 	private int size;
 	private int QUEUE_CAPACITY;
 	
@@ -31,13 +31,13 @@ public class ArrivalBuffer {
 		return head==null;
 		}
 	
-	public void enqueue(Parcel parcel) {
+	public void enqueue(T parcel) {
 		if (isFull()) {
 			System.out.println("Queue is full" + "Package: " + parcel.getParcelID() + parcel.getDestinationCity() + "not found.");
 		return;
 		}
 		
-		Node newNode= new Node(parcel);	
+		Node<T> newNode= new Node<>(parcel);	
 		
 		if(isEmpty()) {
 			head=newNode;
@@ -50,13 +50,13 @@ public class ArrivalBuffer {
 	}
 			
 		
-	public Parcel dequeue() {
+	public T dequeue() {
 		if (isEmpty()) {
 		System.out.println("Queue is empty");
 		return null;
 		}
 		
-		Parcel p= head.data; //bir elemanı çıkarırken bu elemanı bir değişkende tutuyoruz, en öndeki ilk çıkacağı için head verisini attık
+		T p= head.data; //bir elemanı çıkarırken bu elemanı bir değişkende tutuyoruz, en öndeki ilk çıkacağı için head verisini attık
 		head=head.next;
 		size--;
 		
@@ -66,7 +66,7 @@ public class ArrivalBuffer {
 		return p;
 		
 	}
-	public Parcel peek() {
+	public T peek() {
 		if(isEmpty()) {
 			return null;
 		}
