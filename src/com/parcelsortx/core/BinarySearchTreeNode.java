@@ -11,9 +11,9 @@ public class BinarySearchTreeNode {
 	BinarySearchTreeNode right;
 	
 	 public BinarySearchTreeNode(String cityName, Parcel initialParcel) {
-	        this.cityName = cityName;
-	        this.parcelList = new LinkedList<>(); // LinkedList, Queue arayüzünü uygular.
-	        this.parcelList.add(initialParcel);
+	      this.cityName = cityName;
+	        this.parcelList = new ArrivalBuffer<>(100); // kapasiteyi yeterli bir sayıyla sabit ver
+	        this.parcelList.enqueue(initialParcel);
 	        this.left = null;
 	        this.right = null;
 	    }
@@ -25,7 +25,7 @@ public class BinarySearchTreeNode {
 	        return cityName;
 	    }
 
-	    public Queue<Parcel> getParcelList() {
+	    public ArrivalBuffer<Parcel> getParcelList() {
 	        return parcelList;
 	    }
 }

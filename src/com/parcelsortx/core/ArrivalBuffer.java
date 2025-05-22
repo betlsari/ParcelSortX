@@ -75,6 +75,30 @@ public class ArrivalBuffer<T extends Parcel> { //T tipini Parcel sınıfıyla s�
 	public int size() {
         return size;
     }
+	
+	public boolean removeByID(String parcelID) {
+	    if (isEmpty()) return false;
+
+	    Node<T> dummy = new Node<>(null); 
+	    dummy.next = head;
+	    Node<T> prev = dummy;
+	    Node<T> current = head;
+
+	    while (current != null) {
+	        if (((Parcel) current.data).getParcelID().equals(parcelID)) {
+	            prev.next = current.next;
+	            if (current == tail) {
+	                tail = prev == dummy ? null : prev;
+	            }
+	            head = dummy.next;
+	            size--;
+	            return true;
+	        }
+	        prev = current;
+	        current = current.next;
+	    }
+	    return false;
+	}
 
 	
 }

@@ -4,65 +4,46 @@ import java.util.Queue;
 
 import com.parcelsortx.core.BinarySearchTree;
 import com.parcelsortx.model.Parcel;
+import com.parcelsortx.model.Parcel.Status;
 
 public class BSTTest {
 
-	public static void main(String[] args) {
-		BinarySearchTree sorter = new BinarySearchTree();
+	  public static void main(String[] args) {
+	        BinarySearchTree bst = new BinarySearchTree();
 
-        // Örnek Parcel nesneleri oluşturma
-        Parcel p1 = new Parcel("P001", "Ankara", 2, "medium", 10, Parcel.Status.Sorted);
-        Parcel p2 = new Parcel("P002", "Izmir", 3, "large", 12, Parcel.Status.Sorted);
-        Parcel p3 = new Parcel("P003", "Ankara", 1, "small", 15, Parcel.Status.Sorted);
-        Parcel p4 = new Parcel("P004", "Istanbul", 2, "medium", 18, Parcel.Status.Sorted);
-        Parcel p5 = new Parcel("P005", "Izmir", 2, "small", 20, Parcel.Status.Sorted);
-        Parcel p6 = new Parcel("P006", "Ankara", 3, "large", 22, Parcel.Status.Sorted);
-        Parcel p7 = new Parcel("P007", "Bursa", 1, "small", 25, Parcel.Status.Sorted);
-        Parcel p8 = new Parcel("P008", "Istanbul", 3, "large", 28, Parcel.Status.Sorted);
+	        // 📦 1. Parcel nesneleri oluştur
+	        Parcel p1 = new Parcel("P001", "Istanbul", 2, "medium", 1, Status.Sorted);
+	        Parcel p2 = new Parcel("P002", "Ankara", 1, "small", 2, Status.Sorted);
+	        Parcel p3 = new Parcel("P003", "Izmir", 3, "large", 3, Status.Sorted);
+	        Parcel p4 = new Parcel("P004", "Istanbul", 1, "small", 4, Status.Sorted);
+	        Parcel p5 = new Parcel("P005", "Antalya", 2, "medium", 5, Status.Sorted);
 
-        // Paketleri ekleme
-        sorter.insertParcel(p1);
-        sorter.insertParcel(p2);
-        sorter.insertParcel(p3);
-        sorter.insertParcel(p4);
-        sorter.insertParcel(p5);
-        sorter.insertParcel(p6);
-        sorter.insertParcel(p7);
-        sorter.insertParcel(p8);
+	        // 🌳 2. Ağaç yapısına ekle
+	        bst.insertParcel(p1);
+	        bst.insertParcel(p2);
+	        bst.insertParcel(p3);
+	        bst.insertParcel(p4); // Aynı şehre ikinci kargo
+	        bst.insertParcel(p5);
 
-        System.out.println("BST Yüksekliği: " + sorter.getHeight());
-        System.out.println("Toplam Şehir Düğümü Sayısı: " + sorter.getNumberOfNodes());
+	        // 🔍 3. In-order traversal (şehirleri alfabetik sırayla yazdır)
+	        System.out.println("\n🗂 Şehirler alfabetik sırayla:");
+	        bst.inOrderTraversal();
 
-        // In-Order Traversal
-        sorter.inOrderTraversal();
+	        // 📊 4. Belirli şehirlerdeki kargo sayısını kontrol et
+	        System.out.println("\n📦 'Istanbul'daki kargo sayısı: " + bst.countCityParcels("Istanbul"));
+	        System.out.println("📦 'Izmir'deki kargo sayısı: " + bst.countCityParcels("Izmir"));
+	        System.out.println("📦 'Trabzon'daki kargo sayısı: " + bst.countCityParcels("Trabzon")); // olmayan şehir
 
-        // Belirli bir şehre ait paketleri sorgulama
-        Queue<Parcel> ankaraParcels = sorter.getCityParcels("Ankara");
-        if (ankaraParcels != null) {
-            System.out.println("\nAnkara'ya giden paketler (" + ankaraParcels.size() + " adet):");
-            for (Parcel p : ankaraParcels) {
-                System.out.println("- " + p.getParcelID() + " (" + p.getPriority() + ")");
-            }
-        }
+	        // 🗑 5. Kargo sil (Parcel ID ile)
+	        System.out.println("\n🗑 P004 ID'li kargo Istanbul'dan siliniyor...");
+	        boolean removed = bst.removeParcel("Istanbul", "P004");
+	        System.out.println("✅ Silme başarılı mı? " + removed);
+	        System.out.println("📦 Istanbul'daki güncel kargo sayısı: " + bst.countCityParcels("Istanbul"));
 
-        // Belirli bir şehirdeki paket sayısını sorgulama
-        System.out.println("\nIzmir'deki paket sayısı: " + sorter.countCityParcels("Izmir"));
-        System.out.println("Antalya'daki paket sayısı: " + sorter.countCityParcels("Antalya"));
-
-        // Paket kaldırma
-        System.out.println("\nP003 (Ankara) paketi kaldırılıyor: " + sorter.removeParcel("Ankara", "P003"));
-        System.out.println("Ankara'daki yeni paket sayısı: " + sorter.countCityParcels("Ankara"));
-        System.out.println("P009 (Bilinmeyen) paketi kaldırılıyor: " + sorter.removeParcel("Bursa", "P009")); // Olmayan bir paket
-
-        System.out.println("\nGüncel BST Yüksekliği: " + sorter.getHeight());
-        System.out.println("Güncel Toplam Şehir Düğümü Sayısı: " + sorter.getNumberOfNodes()); // Düğüm sayısı değişmez çünkü sadece paketi sildik, düğümü değil.
-
-        // En yüksek paket yüküne sahip şehir
-        System.out.println("\nEn Yüksek Paket Yüküne Sahip Şehir: " + sorter.getCityWithHighestParcelLoad() + 
-                           " (" + sorter.getHighestParcelLoadCount() + " paket)");
-
-        // Tekrar in-order traversal
-        sorter.inOrderTraversal();
-    }
-
+	        // 📏 6. Ağaç istatistikleri
+	        System.out.println("\n🌲 BST Yüksekliği: " + bst.getHeight());
+	        System.out.println("🌐 Toplam şehir düğümü: " + bst.getNumberOfNodes());
+	        System.out.println("🏙 En yoğun şehir: " + bst.getCityWithHighestParcelLoad() + 
+	                           " (" + bst.getHighestParcelLoadCount() + " kargo)");
+	    }
 	}
