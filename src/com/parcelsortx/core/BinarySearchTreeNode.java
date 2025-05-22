@@ -1,13 +1,12 @@
 package com.parcelsortx.core;
 import java.util.LinkedList;
-import java.util.LinkedList;
-import java.util.Queue;
 import com.parcelsortx.model.Parcel;
+import com.parcelsortx.core.ArrivalBuffer;
 
 
 public class BinarySearchTreeNode {
 	String cityName;
-	Queue<Parcel> parcelList;
+	ArrivalBuffer<Parcel> parcelList;
 	BinarySearchTreeNode left;
 	BinarySearchTreeNode right;
 	
