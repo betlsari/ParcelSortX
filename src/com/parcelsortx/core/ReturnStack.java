@@ -2,7 +2,7 @@ package com.parcelsortx.core;
 
 import com.parcelsortx.model.Parcel;
 
-public class Stack {
+public class ReturnStack {
 	/* ECE */
 	/*
 	 * Bu yığın, yanlış yönlendirilen veya teslim 
@@ -18,16 +18,16 @@ public class Stack {
 	private static final String GREEN = "\u001B[32m";
 	
 	
-	private StackNode top;
+	private ReturnStackNode top;
 	private int size;
 
-	public Stack() {
+	public ReturnStack() {
 		this.top = null;
 		this.size = 0;
 	}
 
 	public void push(Parcel parcel) {
-		StackNode newNode = new StackNode(parcel);
+		ReturnStackNode newNode = new ReturnStackNode(parcel);
 		newNode.next = top;
 		top = newNode;
 		size++;
@@ -70,7 +70,7 @@ public class Stack {
 		}
 		System.out.println(GREEN + "stack size is : " + size + RESET);
 
-		StackNode current = top;
+		ReturnStackNode current = top;
 		int position = 1;
 
 		while (current != null) {
@@ -85,7 +85,6 @@ public class Stack {
 	}
 
 	static {
-	    // Windows'ta ANSI renkleri etkinleştirme
 	    if (System.getProperty("os.name").toLowerCase().contains("win")) {
 	        try {
 	            new ProcessBuilder("cmd", "/c", "color").inheritIO().start().waitFor();

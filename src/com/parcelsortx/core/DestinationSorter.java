@@ -4,15 +4,15 @@ import java.util.LinkedList;
 
 import com.parcelsortx.model.Parcel;
 
-public class BinarySearchTree {
+public class DestinationSorter {
 	/* ECE */
-	private BinarySearchTreeNode root;
+	private DestinationSorterNode root;
 	private int numOfNodes;
 
 	private String cityWithHighestParcel;
 	private int highestParcelLoadCount;
 
-	public BinarySearchTree() {
+	public DestinationSorter() {
 		this.root = null;
 		this.numOfNodes = 0;
 		this.cityWithHighestParcel = null;
@@ -37,10 +37,10 @@ public class BinarySearchTree {
 	 * sonra current düğümünü döndürür
 	 */
 
-	private BinarySearchTreeNode insertParcelRecursive(BinarySearchTreeNode current, Parcel parcel) {
+	private DestinationSorterNode insertParcelRecursive(DestinationSorterNode current, Parcel parcel) {
 		if (current == null) {
 			numOfNodes++; 
-			return new BinarySearchTreeNode(parcel.getDestinationCity(), parcel);
+			return new DestinationSorterNode(parcel.getDestinationCity(), parcel);
 		}
 		int compareResult = parcel.getDestinationCity().compareToIgnoreCase(current.cityName);
 
@@ -68,7 +68,7 @@ public class BinarySearchTree {
 	 */
 
 	public ArrivalBuffer<Parcel> getCityParcels(String city) {
-		BinarySearchTreeNode node = findNode(root, city);
+		DestinationSorterNode node = findNode(root, city);
 		if (node==null) {
 			System.out.println("şehir bulunamadı" + city);
 			return null;
@@ -76,7 +76,7 @@ public class BinarySearchTree {
 		return node.getParcelList();
 	}
 
-	private BinarySearchTreeNode findNode(BinarySearchTreeNode current, String city) {
+	private DestinationSorterNode findNode(DestinationSorterNode current, String city) {
 		while (current != null) {
 			int compare = city.compareToIgnoreCase(current.cityName);
 
@@ -100,11 +100,11 @@ public class BinarySearchTree {
 	 * 
 	 */
 	public void inOrderTraversal() {
-		System.out.println("alfabetik sırada şehirler:");
+		System.out.println("alfabetik sirada sehirler:");
 		inOrderRecursive(root);
 	}
 
-	private void inOrderRecursive(BinarySearchTreeNode node) {
+	private void inOrderRecursive(DestinationSorterNode node) {
 		if (node != null) {
 			inOrderRecursive(node.left);
 			System.out.println("- " + node.cityName + ": " + node.parcelList.size() + " parcel(s)");
@@ -122,7 +122,7 @@ public class BinarySearchTree {
 	 */
 
 	public boolean removeParcel(String city, String parcelID) {
-		BinarySearchTreeNode node = findNode(root, city);
+		DestinationSorterNode node = findNode(root, city);
 		if (node != null) {
 			return node.parcelList.removeByID(parcelID);
 		}
@@ -130,7 +130,7 @@ public class BinarySearchTree {
 	}
 
 	public int countCityParcels(String city) {
-	    BinarySearchTreeNode current = root;
+	    DestinationSorterNode current = root;
 	    
 	    while (current != null) {
 	        int cmp = city.compareToIgnoreCase(current.cityName);
@@ -144,7 +144,7 @@ public class BinarySearchTree {
 	        }
 	    }
 
-	    System.out.println("şehir bulunamadı: " + city);
+	    System.out.println("Sehir bulunamadi: " + city);
 	    return 0;
 	}
 
@@ -152,7 +152,7 @@ public class BinarySearchTree {
 		return calculateHeight(root);
 	}
 
-	private int calculateHeight(BinarySearchTreeNode node) {
+	private int calculateHeight(DestinationSorterNode node) {
 	    if (node == null) {
 	        return -1; // boş ağaç veya yaprak sonrası
 	    }

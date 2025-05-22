@@ -2,11 +2,11 @@ package com.parcelsortx.core;
 
 import com.parcelsortx.model.Parcel;
 
-public class StackNode {
+public class ReturnStackNode {
 	Parcel parcel;
-    StackNode next;
+    ReturnStackNode next;
 	
-	public StackNode(Parcel parcel) {
+	public ReturnStackNode(Parcel parcel) {
 		this.parcel = parcel;
 		this.next = null;
 	}
