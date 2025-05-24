@@ -1,0 +1,11 @@
+# Simülasyon yapılandırması - ParcelSortX
+
+MAX_TICKS=100
+QUEUE_CAPACITY=10
+TERMINAL_ROTATION_INTERVAL=5
+PARCEL_PER_TICK_MIN=1
+PARCEL_PER_TICK_MAX=3
+MISROUTING_RATE=0.1
+
+# Şehir listesi (virgül ile ayrılmış)
+CITY_LIST=Istanbul,Ankara,Izmir,Bursa,Antalya
