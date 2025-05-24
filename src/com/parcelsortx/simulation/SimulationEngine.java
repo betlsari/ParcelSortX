@@ -15,8 +15,8 @@ public class SimulationEngine {
     private ArrivalBuffer<Parcel> arrivalBuffer;
     private ReturnStack returnStack;
     private DestinationSorter destinationSorter;
-    private HashTable parcelTracker;
-    private CircularLinkedList terminalRotator;
+    private ParcelTracker parcelTracker;
+    private TerminalRotator terminalRotator;
     private Config config;
 
     private Random random;
@@ -35,9 +35,9 @@ public class SimulationEngine {
             arrivalBuffer = new ArrivalBuffer<>(queueCapacity);
             returnStack = new ReturnStack();
             destinationSorter = new DestinationSorter();
-            parcelTracker = new HashTable();
+            parcelTracker = new ParcelTracker();
 
-            terminalRotator = new CircularLinkedList();
+            terminalRotator = new TerminalRotator();
             terminalRotator.initializeFromCityList(config.getCityList().toArray(new String[0]));
 
             random = new Random();

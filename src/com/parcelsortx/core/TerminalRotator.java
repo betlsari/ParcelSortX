@@ -1,6 +1,6 @@
 package com.parcelsortx.core;
 
-public class CircularLinkedList {
+public class TerminalRotator {
     private static class Node {
         String cityName;
         Node next;

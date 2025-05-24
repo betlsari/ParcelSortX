@@ -3,7 +3,7 @@ package com.parcelsortx.core;
 import com.parcelsortx.model.Parcel;
 import com.parcelsortx.model.Parcel.Status;
 
-public class HashTable {
+public class ParcelTracker {
     private static class Entry {
         String key; // parcelID
         Parcel value;
@@ -22,7 +22,7 @@ public class HashTable {
     private static final int TABLE_SIZE = 50;
     private Entry[] table;
 
-    public HashTable() {
+    public ParcelTracker() {
         table = new Entry[TABLE_SIZE];
     }
 
