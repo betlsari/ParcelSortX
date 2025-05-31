@@ -105,9 +105,16 @@ public class SimulationEngine {
     }
 
     // Placeholder metotlar (boş, sonra doldurulacak)
+    //ece
     private void generateParcels() {}
     private void processQueue() {}
     private void dispatchParcels() {}
+    
+    
+    
+    
+    
+    //betül 
     private void reprocessReturnedParcels() {}
     private void rotateTerminal() {}
     private void logTickSummary() {}
