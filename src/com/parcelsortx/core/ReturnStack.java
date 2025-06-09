@@ -81,8 +81,12 @@ public class ReturnStack {
 			position++;
 
 		}
-
+		
 	}
+	public boolean isEmpty() {
+	    return top == null;
+	}
+
 
 	static {
 	    if (System.getProperty("os.name").toLowerCase().contains("win")) {
@@ -93,4 +97,6 @@ public class ReturnStack {
 	        }
 	    }
 	}
+
+	
 }

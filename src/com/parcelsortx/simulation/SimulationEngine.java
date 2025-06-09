@@ -84,10 +84,10 @@ public class SimulationEngine {
         }
 
         if (currentTick % config.getInt("TERMINAL_ROTATION_INTERVAL") == 0) {
-            rotateTerminal();
+            rotateTerminal(2);
         }
 
-        logTickSummary();
+        logTickSummary(1,2,3);
     }
 
     // Yardımcı log başlığı
@@ -234,6 +234,83 @@ public class SimulationEngine {
             }
         }
     }
+    
+
+    public void reprocessReturnedParcels() {
+    	int maxProcess = 3;
+        int processed = 0;
+        
+        while (!returnStack.isEmpty() && processed < maxProcess) {
+            Parcel parcel = returnStack.pop();
+            destinationSorter.insertParcel(parcel);
+            parcelTracker.updateStatus(parcel.getTrackingNumber(), "Okay,sorted.");
+            processed++;
+        }
+        System.out.println("[ReturnHandler] " + processed + " parcels reprocessed.");
+    }
+    public void rotateTerminal(int currentTick) {
+        if (currentTick % TERMINAL_ROTATION_INTERVAL == 0) {
+            rotateAndLog();
+        }
+    }	
+    private void rotateAndLog() {
+        terminalRotator.advanceTerminal();
+        String currentTerminal = terminalRotator.getCurrentTerminal();
+        System.out.println("[rotateTerminal] Terminal rotated. New terminal: " + currentTerminal);
+    }
+     
+     
+    
+    public void logTickSummary(int currentTick, int dispatchedCount, int returnedCount) {
+        int queueSize = dispatchQueue.size();
+        int stackSize = returnStack.size();
+        String activeTerminal = terminalRotator.getCurrentTerminal();
+
+        String summary = String.format(
+            "[Tick %d] Queue: %d | ReturnStack: %d | Dispatched: %d | Returned: %d | Active Terminal: %s",
+            currentTick, queueSize, stackSize, dispatchedCount, returnedCount, activeTerminal);
+
+        System.out.println(summary);
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("tick_log.txt", true))) {
+            bw.write(summary);
+            bw.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void generateFinalReport() {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("report.txt"))) {
+            writer.println("=== FINAL REPORT ===");
+
+            writer.println("Total parcels processed: " + parcelTracker.getTotalParcels());
+
+            String busiestCity = destinationSorter.getBusiestCity();
+            writer.println("Busiest destination: " + busiestCity);
+
+            Parcel delayed = parcelTracker.getMostDelayedParcel();
+            if (delayed != null) {
+                writer.println("Longest delayed parcel: " + delayed.getTrackingNumber()
+                        + " | Delay: " + delayed.getDelay() + " ticks");
+            }
+
+            writer.println("Remaining in Queue: " + dispatchQueue.size());
+            writer.println("Remaining in ReturnStack: " + returnStack.size());
+            writer.println("Remaining in BST: " + destinationSorter.countAllParcels());
+
+            writer.println("\n--- Parcel Tracker Records ---");
+            for (String record : parcelTracker.getAllParcelRecords()) {
+                writer.println(record);
+            }
+
+            writer.println("=== END OF REPORT ===");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Final report generated. Log file closed.");
+    }
 
     // Yardımcı dosya kapama
     private void closeLogger() {
@@ -246,9 +323,5 @@ public class SimulationEngine {
         }
     }
 
-    //betül 
-    private void reprocessReturnedParcels() {}
-    private void rotateTerminal() {}
-    private void logTickSummary() {}
-    private void generateFinalReport() {}
+    
 }
