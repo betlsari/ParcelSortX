@@ -176,4 +176,14 @@ public class DestinationSorter {
 		return highestParcelLoadCount;
 	}
 
+	public String getBusiestCity() {
+		
+		return null;
+	}
+
+	public String countAllParcels() {
+		
+		return null;
+	}
+
 }

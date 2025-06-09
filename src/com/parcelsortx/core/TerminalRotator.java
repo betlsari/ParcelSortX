@@ -47,4 +47,9 @@ public class TerminalRotator {
         } while (temp != current);
         System.out.println("(back to " + current.cityName + ")");
     }
+
+	public String getCurrentTerminal() {
+		
+		return null;
+	}
 }

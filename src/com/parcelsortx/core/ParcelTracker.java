@@ -38,10 +38,10 @@ public class ParcelTracker {
         table[index] = newEntry;
     }
 
-    public void updateStatus(String parcelID, Status newStatus) {
+    public void updateStatus(String parcelID, Status dispatched) {
         Entry e = find(parcelID);
         if (e != null) {
-            e.value.setStatus(newStatus);
+            e.value.setStatus(dispatched);
         }
     }
 
@@ -96,4 +96,19 @@ public class ParcelTracker {
         return (e != null) ? e.returnCount : 0;
     }
     //betül salağı  lalal
+
+	public Parcel getMostDelayedParcel() {
+		
+		return null;
+	}
+
+	public String[] getAllParcelRecords() {
+		
+		return null;
+	}
+
+	public String getTotalParcels() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

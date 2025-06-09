@@ -74,8 +74,8 @@ public class Parcel{
 	public Status getStatus() {
 		return status;
 	}
-	public void setStatus(Status status) {
-		this.status=status;
+	public void setStatus(Status dispatched) {
+		this.status=dispatched;
 	}
 	
 	
@@ -87,6 +87,16 @@ public class Parcel{
 	           "Size: " + size +  "\n"+ 
 	           "Arrival Trick: " + arrivalTrick+"\n" + 
 	           "Status: " + status + "}";
+	}
+
+	public String getTrackingNumber() {
+		
+		return null;
+	}
+
+	public String getDelay() {
+		
+		return null;
 	}
 
 	

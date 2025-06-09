@@ -9,7 +9,8 @@ import java.io.*;
 import java.util.*;
 
 public class SimulationEngine {
-    private int currentTick;
+    private static final int TERMINAL_ROTATION_INTERVAL = 0;
+	private int currentTick;
     private int maxTicks;
 
     private ArrivalBuffer<Parcel> arrivalBuffer;
@@ -262,7 +263,8 @@ public class SimulationEngine {
      
     
     public void logTickSummary(int currentTick, int dispatchedCount, int returnedCount) {
-        int queueSize = dispatchQueue.size();
+        ArrivalBuffer<Parcel> dispatchQueue = null;
+		int queueSize = dispatchQueue.size();
         int stackSize = returnStack.size();
         String activeTerminal = terminalRotator.getCurrentTerminal();
 
@@ -294,7 +296,8 @@ public class SimulationEngine {
                         + " | Delay: " + delayed.getDelay() + " ticks");
             }
 
-            writer.println("Remaining in Queue: " + dispatchQueue.size());
+            ArrivalBuffer<Parcel> dispatchQueue;
+			writer.println("Remaining in Queue: " + dispatchQueue.size());
             writer.println("Remaining in ReturnStack: " + returnStack.size());
             writer.println("Remaining in BST: " + destinationSorter.countAllParcels());
 
