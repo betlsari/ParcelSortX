@@ -8,6 +8,7 @@ import java.util.*;
 public class Config {
     private Map<String, String> configMap;
 
+
     public Config(String filename) {
         configMap = new HashMap<>();
         loadConfigFile(filename);
@@ -61,4 +62,5 @@ public class Config {
             System.out.println(entry.getKey() + " = " + entry.getValue());
         }
     }
+    
 }

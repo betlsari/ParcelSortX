@@ -91,4 +91,8 @@ public class ParcelTracker {
             }
         }
     }
+    public int getReturnCount(String parcelID) {
+        Entry e = find(parcelID);
+        return (e != null) ? e.returnCount : 0;
+    }
 }
