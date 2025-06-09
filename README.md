@@ -78,6 +78,13 @@ java parcelsortx.SimulationController
 ```  
 
 ---  
+
+## 🎊 Örnek Çıktı (Output)  
+
+### Main.java içeriği:  
+
+
+
 ## 📝License  
 
 This project is for educational purposes only.  
