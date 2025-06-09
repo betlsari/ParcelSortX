@@ -1,9 +1,15 @@
 package com.parcelsortx.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.parcelsortx.model.Parcel;
 import com.parcelsortx.model.Parcel.Status;
 
 public class ParcelTracker {
+	  private int dispatchedParcelCount;     // Toplam sevk edilen koli sayısı
+	    private int returnedParcelCount;       // Toplam iade edilen koli sayısı
+
     private static class Entry {
         String key; // parcelID
         Parcel value;
@@ -24,6 +30,8 @@ public class ParcelTracker {
 
     public ParcelTracker() {
         table = new Entry[TABLE_SIZE];
+        this.dispatchedParcelCount = 0;
+        this.returnedParcelCount = 0;
     }
 
     private int hash(String key) {
@@ -39,11 +47,21 @@ public class ParcelTracker {
     }
 
     public void updateStatus(String parcelID, Status dispatched) {
-        Entry e = find(parcelID);
-        if (e != null) {
-            e.value.setStatus(dispatched);
-        }
-    }
+    	 Entry e = find(parcelID);
+         if (e != null) {
+             Status oldStatus = e.value.getStatus(); // Mevcut durumu al
+
+             // Durum değişikliği Dispatch'e ise sayacı artır
+             if (dispatched == Status.Dispatched && oldStatus != Status.Dispatched) {
+                 dispatchedParcelCount++;
+             }
+             // Durum değişikliği Returned'a ise sayacı artır
+             else if (dispatched == Status.Returned && oldStatus != Status.Returned) {
+                 returnedParcelCount++;
+             }
+             
+             e.value.setStatus(dispatched); // Durumu güncelle
+    }}
 
     public Parcel get(String parcelID) {
         Entry e = find(parcelID);
@@ -97,23 +115,64 @@ public class ParcelTracker {
     }
     //betül salağı  lalal
 
-	public Parcel getMostDelayedParcel() {
-		
-		return null;
-	}
+    public Parcel getMostDelayedParcel() {
+        Parcel mostDelayed = null;
+        int maxDelay = -1;
+
+        for (int i = 0; i < TABLE_SIZE; i++) {
+            Entry e = table[i];
+            while (e != null) {
+                int delay = e.dispatchTick - e.value.getArrivalTrick();
+                if (e.dispatchTick > 0 && delay > maxDelay) {
+                    maxDelay = delay;
+                    mostDelayed = e.value;
+                }
+                e = e.next;
+            }
+        }
+
+        return mostDelayed;
+    }
+
 
 	public String[] getAllParcelRecords() {
-		
-		return null;
+	    List<String> records = new ArrayList<>();
+
+	    for (int i = 0; i < TABLE_SIZE; i++) {
+	        Entry e = table[i];
+	        while (e != null) {
+	            String record = "ParcelID: " + e.key +
+	                            ", Status: " + e.value.getStatus() +
+	                            ", Return Count: " + e.returnCount +
+	                            ", Dispatch Tick: " + e.dispatchTick;
+	            records.add(record);
+	            e = e.next;
+	        }
+	    }
+
+	    return records.toArray(new String[0]);
 	}
 
-	public String getTotalParcels() {
-		// TODO Auto-generated method stub
-		return null;
+
+	public int getTotalParcels() {
+	    int count = 0;
+	    for (int i = 0; i < TABLE_SIZE; i++) {
+	        Entry e = table[i];
+	        while (e != null) {
+	            count++;
+	            e = e.next;
+	        }
+	    }
+	    return count;
 	}
 
-	public void updateStatus(String trackingNumber, String string) {
-		// TODO Auto-generated method stub
-		
-	}
+
+	  public int getDispatchedParcelCount() {
+	        return dispatchedParcelCount;
+	    }
+
+	    // Toplam iade edilen koli sayısını döndürür
+	    public int getReturnedParcelCount() {
+	        return returnedParcelCount;
+	    }
 }

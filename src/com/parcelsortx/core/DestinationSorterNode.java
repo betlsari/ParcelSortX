@@ -12,7 +12,7 @@ public class DestinationSorterNode {
 	
 	 public DestinationSorterNode(String cityName, Parcel initialParcel) {
 	      this.cityName = cityName;
-	        this.parcelList = new ArrivalBuffer<>(100); // kapasiteyi yeterli bir sayıyla sabit ver
+	        this.parcelList = new ArrivalBuffer<>(15); // kapasiteyi yeterli bir sayıyla sabit ver
 	        this.parcelList.enqueue(initialParcel);
 	        this.left = null;
 	        this.right = null;

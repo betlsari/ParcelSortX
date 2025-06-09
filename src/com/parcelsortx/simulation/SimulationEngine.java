@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.*;
 
 public class SimulationEngine {
-    private static final int TERMINAL_ROTATION_INTERVAL = 0;
+   // private static final int TERMINAL_ROTATION_INTERVAL = 0;
 	private int currentTick;
     private int maxTicks;
 
@@ -78,17 +78,26 @@ public class SimulationEngine {
 
         generateParcels();
         processQueue();
+        System.out.println("  [DEBUG] ReturnStack size BEFORE dispatch: " + returnStack.size());
+        
         dispatchParcels();
+        System.out.println("  [DEBUG] ReturnStack size AFTER dispatch: " + returnStack.size());
 
         if (currentTick % 3 == 0) {
-            reprocessReturnedParcels();
+        	  System.out.println("  [DEBUG] Attempting to reprocess. ReturnStack size BEFORE reprocess: " + returnStack.size());
+              reprocessReturnedParcels();
+              System.out.println("  [DEBUG] ReturnStack size AFTER reprocess: " + returnStack.size());
+       
         }
-
+        else {
+            System.out.println("  [DEBUG] No reprocessing this tick (currentTick % 3 != 0). ReturnStack size: " + returnStack.size());
+        }
         if (currentTick % config.getInt("TERMINAL_ROTATION_INTERVAL") == 0) {
-            rotateTerminal(2);
+            rotateTerminal(currentTick);
         }
 
-        logTickSummary(1,2,3);
+        logTickSummary(currentTick, parcelTracker.getDispatchedParcelCount(), parcelTracker.getReturnedParcelCount());
+
     }
 
     // Yardımcı log başlığı
@@ -173,7 +182,11 @@ public class SimulationEngine {
     }
 
     public void dispatchParcels() {
+    	
         String activeTerminalCity = terminalRotator.getActiveTerminal();
+        if (activeTerminalCity != null) {
+            activeTerminalCity = activeTerminalCity.trim().toLowerCase(); // Boşlukları temizle
+        }
         try {
             logWriter.write("tick " + currentTick + ": attempting to dispatch parcels for active terminal: " + activeTerminalCity);
             logWriter.newLine();
@@ -194,7 +207,7 @@ public class SimulationEngine {
         }
 
         ArrivalBuffer<Parcel> parcelsForCity = destinationSorter.getCityParcels(activeTerminalCity);
-
+       
         if (parcelsForCity == null || parcelsForCity.isEmpty()) {
             try {
                 logWriter.write("  no parcels found for " + activeTerminalCity + " at this tick.");
@@ -244,29 +257,30 @@ public class SimulationEngine {
         while (!returnStack.isEmpty() && processed < maxProcess) {
             Parcel parcel = returnStack.pop();
             destinationSorter.insertParcel(parcel);
-            parcelTracker.updateStatus(parcel.getTrackingNumber(), "Okay,sorted.");
+            parcelTracker.updateStatus(parcel.getParcelID(), Status.Sorted);
             processed++;
         }
         System.out.println("[ReturnHandler] " + processed + " parcels reprocessed.");
     }
     public void rotateTerminal(int currentTick) {
-        if (currentTick % TERMINAL_ROTATION_INTERVAL == 0) {
+    	int rotationInterval = config.getInt("TERMINAL_ROTATION_INTERVAL");
+
+        if (rotationInterval > 0 && currentTick % rotationInterval == 0) {
             rotateAndLog();
         }
     }	
     private void rotateAndLog() {
         terminalRotator.advanceTerminal();
-        String currentTerminal = terminalRotator.getCurrentTerminal();
+        String currentTerminal = terminalRotator.getActiveTerminal();
         System.out.println("[rotateTerminal] Terminal rotated. New terminal: " + currentTerminal);
     }
      
      
     
     public void logTickSummary(int currentTick, int dispatchedCount, int returnedCount) {
-        ArrivalBuffer<Parcel> dispatchQueue = null;
-		int queueSize = dispatchQueue.size();
+		int queueSize = arrivalBuffer.size();
         int stackSize = returnStack.size();
-        String activeTerminal = terminalRotator.getCurrentTerminal();
+        String activeTerminal = terminalRotator.getActiveTerminal();
 
         String summary = String.format(
             "[Tick %d] Queue: %d | ReturnStack: %d | Dispatched: %d | Returned: %d | Active Terminal: %s",
@@ -287,7 +301,7 @@ public class SimulationEngine {
 
             writer.println("Total parcels processed: " + parcelTracker.getTotalParcels());
 
-            String busiestCity = destinationSorter.getBusiestCity();
+            String busiestCity = destinationSorter.getCityWithHighestParcelLoad();
             writer.println("Busiest destination: " + busiestCity);
 
             Parcel delayed = parcelTracker.getMostDelayedParcel();
@@ -296,8 +310,7 @@ public class SimulationEngine {
                         + " Delay: " + delayed.getDelay() + " ticks");
             }
 
-            ArrivalBuffer<Parcel> dispatchQueue = null;
-			writer.println("Remaining in Queue: " + dispatchQueue.size());
+			writer.println("Remaining in Queue: " + arrivalBuffer.size());
             writer.println("Remaining in ReturnStack: " + returnStack.size());
             writer.println("Remaining in BST: " + destinationSorter.countAllParcels());
 

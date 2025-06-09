@@ -33,9 +33,9 @@ public class ArrivalBuffer<T extends Parcel> { //T tipini Parcel sınıfıyla s�
 	
 	public void enqueue(T parcel) {
 		if (isFull()) {
-			System.out.println("Queue is full" + "Package: " + parcel.getParcelID() + parcel.getDestinationCity() + "not found.");
-		return;
-		}
+	        System.out.println("Queue is full. Package: " + parcel.getParcelID() + " " + parcel.getDestinationCity() + " not found.");
+	        return;
+	    }
 		
 		Node<T> newNode= new Node<>(parcel);	
 		

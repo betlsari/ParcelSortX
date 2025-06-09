@@ -47,10 +47,18 @@ public class Config {
     }
 
     public List<String> getCityList() {
-        String cities = configMap.get("CITY_LIST");
-        if (cities == null || cities.isEmpty()) return new ArrayList<>();
-        return Arrays.asList(cities.split(","));
-    }
+    	 String cities = configMap.get("CITY_LIST");
+         if (cities == null || cities.isEmpty()) {
+             return new ArrayList<>();
+         }
+
+         // Şehir isimlerini virgülle ayır, her birini boşluklardan temizle ve küçük harfe çevir
+         String[] cityArray = cities.split(",");
+         List<String> normalizedCityList = new ArrayList<>();
+         for (String city : cityArray) {
+             normalizedCityList.add(city.trim().toLowerCase());
+         }
+         return normalizedCityList;}
 
     public boolean containsKey(String key) {
         return configMap.containsKey(key);

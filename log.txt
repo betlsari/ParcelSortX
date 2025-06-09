@@ -1,0 +1,995 @@
+Simülasyon başlatıldı...
+
+[Tick 1]
+tick 1: generating 2 parcels.
+  generated parcel: P1-0416 -> antalya (priority: 1, status: in queue)
+  generated parcel: P1-1396 -> bursa (priority: 3, status: in queue)
+tick 1: processing parcels from arrival buffer.
+  processed parcel: P1-0416 to antalya (status: sorted)
+  processed parcel: P1-1396 to bursa (status: sorted)
+tick 1: attempting to dispatch parcels for active terminal: ıstanbul
+  no parcels found for ıstanbul at this tick.
+
+[Tick 2]
+tick 2: generating 1 parcels.
+  generated parcel: P2-0704 -> ızmir (priority: 2, status: in queue)
+tick 2: processing parcels from arrival buffer.
+  processed parcel: P2-0704 to ızmir (status: sorted)
+tick 2: attempting to dispatch parcels for active terminal: ıstanbul
+  no parcels found for ıstanbul at this tick.
+
+[Tick 3]
+tick 3: generating 2 parcels.
+  generated parcel: P3-0160 -> ızmir (priority: 3, status: in queue)
+  generated parcel: P3-1419 -> ıstanbul (priority: 1, status: in queue)
+tick 3: processing parcels from arrival buffer.
+  processed parcel: P3-0160 to ızmir (status: sorted)
+  processed parcel: P3-1419 to ıstanbul (status: sorted)
+tick 3: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P3-1419 to ıstanbul (status: dispatched, dispatch tick: 3)
+
+[Tick 4]
+tick 4: generating 2 parcels.
+  generated parcel: P4-0237 -> ızmir (priority: 1, status: in queue)
+  generated parcel: P4-1672 -> ankara (priority: 1, status: in queue)
+tick 4: processing parcels from arrival buffer.
+  processed parcel: P4-0237 to ızmir (status: sorted)
+  processed parcel: P4-1672 to ankara (status: sorted)
+tick 4: attempting to dispatch parcels for active terminal: ıstanbul
+  no parcels found for ıstanbul at this tick.
+
+[Tick 5]
+tick 5: generating 1 parcels.
+  generated parcel: P5-050 -> ankara (priority: 3, status: in queue)
+tick 5: processing parcels from arrival buffer.
+  processed parcel: P5-050 to ankara (status: sorted)
+tick 5: attempting to dispatch parcels for active terminal: ıstanbul
+  no parcels found for ıstanbul at this tick.
+
+[Tick 6]
+tick 6: generating 3 parcels.
+  generated parcel: P6-0334 -> bursa (priority: 1, status: in queue)
+  generated parcel: P6-1614 -> ıstanbul (priority: 2, status: in queue)
+  generated parcel: P6-2580 -> bursa (priority: 2, status: in queue)
+tick 6: processing parcels from arrival buffer.
+  processed parcel: P6-0334 to bursa (status: sorted)
+  processed parcel: P6-1614 to ıstanbul (status: sorted)
+  processed parcel: P6-2580 to bursa (status: sorted)
+tick 6: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P4-1672 to ankara (status: dispatched, dispatch tick: 6)
+
+[Tick 7]
+tick 7: generating 1 parcels.
+  generated parcel: P7-0758 -> ankara (priority: 2, status: in queue)
+tick 7: processing parcels from arrival buffer.
+  processed parcel: P7-0758 to ankara (status: sorted)
+tick 7: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P5-050 to ankara (status: dispatched, dispatch tick: 7)
+
+[Tick 8]
+tick 8: generating 2 parcels.
+  generated parcel: P8-0105 -> ankara (priority: 1, status: in queue)
+  generated parcel: P8-1936 -> ıstanbul (priority: 3, status: in queue)
+tick 8: processing parcels from arrival buffer.
+  processed parcel: P8-0105 to ankara (status: sorted)
+  processed parcel: P8-1936 to ıstanbul (status: sorted)
+tick 8: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P7-0758 to ankara (status: dispatched, dispatch tick: 8)
+
+[Tick 9]
+tick 9: generating 2 parcels.
+  generated parcel: P9-0251 -> ızmir (priority: 1, status: in queue)
+  generated parcel: P9-1881 -> ızmir (priority: 2, status: in queue)
+tick 9: processing parcels from arrival buffer.
+  processed parcel: P9-0251 to ızmir (status: sorted)
+  processed parcel: P9-1881 to ızmir (status: sorted)
+tick 9: attempting to dispatch parcels for active terminal: ankara
+  misrouted parcel: P8-0105 -> ankara (status: returned, return count: 1)
+
+[Tick 10]
+tick 10: generating 2 parcels.
+  generated parcel: P10-0334 -> ızmir (priority: 1, status: in queue)
+  generated parcel: P10-1708 -> ankara (priority: 3, status: in queue)
+tick 10: processing parcels from arrival buffer.
+  processed parcel: P10-0334 to ızmir (status: sorted)
+  processed parcel: P10-1708 to ankara (status: sorted)
+tick 10: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P8-0105 to ankara (status: dispatched, dispatch tick: 10)
+
+[Tick 11]
+tick 11: generating 1 parcels.
+  generated parcel: P11-0118 -> ıstanbul (priority: 3, status: in queue)
+tick 11: processing parcels from arrival buffer.
+  processed parcel: P11-0118 to ıstanbul (status: sorted)
+tick 11: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P2-0704 to ızmir (status: dispatched, dispatch tick: 11)
+
+[Tick 12]
+tick 12: generating 1 parcels.
+  generated parcel: P12-0386 -> ankara (priority: 3, status: in queue)
+tick 12: processing parcels from arrival buffer.
+  processed parcel: P12-0386 to ankara (status: sorted)
+tick 12: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P3-0160 to ızmir (status: dispatched, dispatch tick: 12)
+
+[Tick 13]
+tick 13: generating 1 parcels.
+  generated parcel: P13-0769 -> ızmir (priority: 2, status: in queue)
+tick 13: processing parcels from arrival buffer.
+  processed parcel: P13-0769 to ızmir (status: sorted)
+tick 13: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P4-0237 to ızmir (status: dispatched, dispatch tick: 13)
+
+[Tick 14]
+tick 14: generating 1 parcels.
+  generated parcel: P14-0861 -> bursa (priority: 1, status: in queue)
+tick 14: processing parcels from arrival buffer.
+  processed parcel: P14-0861 to bursa (status: sorted)
+tick 14: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P9-0251 to ızmir (status: dispatched, dispatch tick: 14)
+
+[Tick 15]
+tick 15: generating 2 parcels.
+  generated parcel: P15-0994 -> ankara (priority: 3, status: in queue)
+  generated parcel: P15-1682 -> ankara (priority: 1, status: in queue)
+tick 15: processing parcels from arrival buffer.
+  processed parcel: P15-0994 to ankara (status: sorted)
+  processed parcel: P15-1682 to ankara (status: sorted)
+tick 15: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P9-1881 to ızmir (status: dispatched, dispatch tick: 15)
+
+[Tick 16]
+tick 16: generating 3 parcels.
+  generated parcel: P16-0585 -> ankara (priority: 3, status: in queue)
+  generated parcel: P16-1503 -> bursa (priority: 2, status: in queue)
+  generated parcel: P16-2524 -> antalya (priority: 3, status: in queue)
+tick 16: processing parcels from arrival buffer.
+  processed parcel: P16-0585 to ankara (status: sorted)
+  processed parcel: P16-1503 to bursa (status: sorted)
+  processed parcel: P16-2524 to antalya (status: sorted)
+tick 16: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P1-1396 to bursa (status: dispatched, dispatch tick: 16)
+
+[Tick 17]
+tick 17: generating 3 parcels.
+  generated parcel: P17-0921 -> bursa (priority: 3, status: in queue)
+  generated parcel: P17-1147 -> antalya (priority: 3, status: in queue)
+  generated parcel: P17-2552 -> bursa (priority: 2, status: in queue)
+tick 17: processing parcels from arrival buffer.
+  processed parcel: P17-0921 to bursa (status: sorted)
+  processed parcel: P17-1147 to antalya (status: sorted)
+  processed parcel: P17-2552 to bursa (status: sorted)
+tick 17: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P6-0334 to bursa (status: dispatched, dispatch tick: 17)
+
+[Tick 18]
+tick 18: generating 2 parcels.
+  generated parcel: P18-0570 -> ıstanbul (priority: 2, status: in queue)
+  generated parcel: P18-10 -> ızmir (priority: 3, status: in queue)
+tick 18: processing parcels from arrival buffer.
+  processed parcel: P18-0570 to ıstanbul (status: sorted)
+  processed parcel: P18-10 to ızmir (status: sorted)
+tick 18: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P6-2580 to bursa (status: dispatched, dispatch tick: 18)
+
+[Tick 19]
+tick 19: generating 1 parcels.
+  generated parcel: P19-0616 -> ıstanbul (priority: 1, status: in queue)
+tick 19: processing parcels from arrival buffer.
+  processed parcel: P19-0616 to ıstanbul (status: sorted)
+tick 19: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P14-0861 to bursa (status: dispatched, dispatch tick: 19)
+
+[Tick 20]
+tick 20: generating 3 parcels.
+  generated parcel: P20-0646 -> antalya (priority: 3, status: in queue)
+  generated parcel: P20-1983 -> ızmir (priority: 2, status: in queue)
+  generated parcel: P20-210 -> ıstanbul (priority: 3, status: in queue)
+tick 20: processing parcels from arrival buffer.
+  processed parcel: P20-0646 to antalya (status: sorted)
+  processed parcel: P20-1983 to ızmir (status: sorted)
+  processed parcel: P20-210 to ıstanbul (status: sorted)
+tick 20: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P16-1503 to bursa (status: dispatched, dispatch tick: 20)
+
+[Tick 21]
+tick 21: generating 2 parcels.
+  generated parcel: P21-0788 -> ızmir (priority: 1, status: in queue)
+  generated parcel: P21-1910 -> ıstanbul (priority: 1, status: in queue)
+tick 21: processing parcels from arrival buffer.
+  processed parcel: P21-0788 to ızmir (status: sorted)
+  processed parcel: P21-1910 to ıstanbul (status: sorted)
+tick 21: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P1-0416 to antalya (status: dispatched, dispatch tick: 21)
+
+[Tick 22]
+tick 22: generating 2 parcels.
+  generated parcel: P22-0499 -> ankara (priority: 3, status: in queue)
+  generated parcel: P22-1200 -> ıstanbul (priority: 3, status: in queue)
+tick 22: processing parcels from arrival buffer.
+  processed parcel: P22-0499 to ankara (status: sorted)
+  processed parcel: P22-1200 to ıstanbul (status: sorted)
+tick 22: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P16-2524 to antalya (status: dispatched, dispatch tick: 22)
+
+[Tick 23]
+tick 23: generating 1 parcels.
+  generated parcel: P23-0450 -> antalya (priority: 3, status: in queue)
+tick 23: processing parcels from arrival buffer.
+  processed parcel: P23-0450 to antalya (status: sorted)
+tick 23: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P17-1147 to antalya (status: dispatched, dispatch tick: 23)
+
+[Tick 24]
+tick 24: generating 3 parcels.
+  generated parcel: P24-0615 -> ızmir (priority: 1, status: in queue)
+  generated parcel: P24-1843 -> ıstanbul (priority: 1, status: in queue)
+  generated parcel: P24-2589 -> bursa (priority: 2, status: in queue)
+tick 24: processing parcels from arrival buffer.
+  processed parcel: P24-0615 to ızmir (status: sorted)
+  processed parcel: P24-1843 to ıstanbul (status: sorted)
+  processed parcel: P24-2589 to bursa (status: sorted)
+tick 24: attempting to dispatch parcels for active terminal: antalya
+  misrouted parcel: P20-0646 -> antalya (status: returned, return count: 1)
+
+[Tick 25]
+tick 25: generating 2 parcels.
+  generated parcel: P25-0327 -> ızmir (priority: 1, status: in queue)
+  generated parcel: P25-1766 -> ızmir (priority: 1, status: in queue)
+tick 25: processing parcels from arrival buffer.
+  processed parcel: P25-0327 to ızmir (status: sorted)
+  processed parcel: P25-1766 to ızmir (status: sorted)
+tick 25: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P23-0450 to antalya (status: dispatched, dispatch tick: 25)
+
+[Tick 26]
+tick 26: generating 3 parcels.
+  generated parcel: P26-0996 -> antalya (priority: 3, status: in queue)
+  generated parcel: P26-1263 -> ankara (priority: 3, status: in queue)
+  generated parcel: P26-2665 -> ankara (priority: 3, status: in queue)
+tick 26: processing parcels from arrival buffer.
+  processed parcel: P26-0996 to antalya (status: sorted)
+  processed parcel: P26-1263 to ankara (status: sorted)
+  processed parcel: P26-2665 to ankara (status: sorted)
+tick 26: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P6-1614 to ıstanbul (status: dispatched, dispatch tick: 26)
+
+[Tick 27]
+tick 27: generating 2 parcels.
+  generated parcel: P27-0574 -> ankara (priority: 1, status: in queue)
+  generated parcel: P27-1887 -> antalya (priority: 1, status: in queue)
+tick 27: processing parcels from arrival buffer.
+  processed parcel: P27-0574 to ankara (status: sorted)
+  processed parcel: P27-1887 to antalya (status: sorted)
+tick 27: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P8-1936 to ıstanbul (status: dispatched, dispatch tick: 27)
+
+[Tick 28]
+tick 28: generating 2 parcels.
+  generated parcel: P28-0775 -> ızmir (priority: 2, status: in queue)
+  generated parcel: P28-1476 -> ankara (priority: 1, status: in queue)
+tick 28: processing parcels from arrival buffer.
+  processed parcel: P28-0775 to ızmir (status: sorted)
+  processed parcel: P28-1476 to ankara (status: sorted)
+tick 28: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P11-0118 to ıstanbul (status: dispatched, dispatch tick: 28)
+
+[Tick 29]
+tick 29: generating 3 parcels.
+  generated parcel: P29-0486 -> ıstanbul (priority: 2, status: in queue)
+  generated parcel: P29-1816 -> ıstanbul (priority: 3, status: in queue)
+  generated parcel: P29-2203 -> ankara (priority: 2, status: in queue)
+tick 29: processing parcels from arrival buffer.
+  processed parcel: P29-0486 to ıstanbul (status: sorted)
+  processed parcel: P29-1816 to ıstanbul (status: sorted)
+  processed parcel: P29-2203 to ankara (status: sorted)
+tick 29: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P18-0570 to ıstanbul (status: dispatched, dispatch tick: 29)
+
+[Tick 30]
+tick 30: generating 3 parcels.
+  generated parcel: P30-0930 -> bursa (priority: 3, status: in queue)
+  generated parcel: P30-1430 -> ızmir (priority: 2, status: in queue)
+  generated parcel: P30-2718 -> bursa (priority: 2, status: in queue)
+tick 30: processing parcels from arrival buffer.
+  processed parcel: P30-0930 to bursa (status: sorted)
+  processed parcel: P30-1430 to ızmir (status: sorted)
+  processed parcel: P30-2718 to bursa (status: sorted)
+tick 30: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P19-0616 to ıstanbul (status: dispatched, dispatch tick: 30)
+
+[Tick 31]
+tick 31: generating 3 parcels.
+  generated parcel: P31-0240 -> ankara (priority: 2, status: in queue)
+  generated parcel: P31-1139 -> ızmir (priority: 1, status: in queue)
+  generated parcel: P31-2894 -> antalya (priority: 3, status: in queue)
+tick 31: processing parcels from arrival buffer.
+  processed parcel: P31-0240 to ankara (status: sorted)
+  processed parcel: P31-1139 to ızmir (status: sorted)
+  processed parcel: P31-2894 to antalya (status: sorted)
+tick 31: attempting to dispatch parcels for active terminal: ankara
+  misrouted parcel: P10-1708 -> ankara (status: returned, return count: 1)
+
+[Tick 32]
+tick 32: generating 1 parcels.
+  generated parcel: P32-0277 -> bursa (priority: 2, status: in queue)
+tick 32: processing parcels from arrival buffer.
+  processed parcel: P32-0277 to bursa (status: sorted)
+tick 32: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P12-0386 to ankara (status: dispatched, dispatch tick: 32)
+
+[Tick 33]
+tick 33: generating 1 parcels.
+  generated parcel: P33-0647 -> bursa (priority: 2, status: in queue)
+tick 33: processing parcels from arrival buffer.
+  processed parcel: P33-0647 to bursa (status: sorted)
+tick 33: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P15-0994 to ankara (status: dispatched, dispatch tick: 33)
+
+[Tick 34]
+tick 34: generating 2 parcels.
+  generated parcel: P34-050 -> ızmir (priority: 2, status: in queue)
+  generated parcel: P34-1437 -> bursa (priority: 2, status: in queue)
+tick 34: processing parcels from arrival buffer.
+  processed parcel: P34-050 to ızmir (status: sorted)
+  processed parcel: P34-1437 to bursa (status: sorted)
+tick 34: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P15-1682 to ankara (status: dispatched, dispatch tick: 34)
+
+[Tick 35]
+tick 35: generating 1 parcels.
+  generated parcel: P35-0414 -> antalya (priority: 2, status: in queue)
+tick 35: processing parcels from arrival buffer.
+  processed parcel: P35-0414 to antalya (status: sorted)
+tick 35: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P16-0585 to ankara (status: dispatched, dispatch tick: 35)
+
+[Tick 36]
+tick 36: generating 2 parcels.
+  generated parcel: P36-0849 -> ızmir (priority: 2, status: in queue)
+  generated parcel: P36-1559 -> ızmir (priority: 1, status: in queue)
+tick 36: processing parcels from arrival buffer.
+  processed parcel: P36-0849 to ızmir (status: sorted)
+  processed parcel: P36-1559 to ızmir (status: sorted)
+tick 36: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P10-0334 to ızmir (status: dispatched, dispatch tick: 36)
+
+[Tick 37]
+tick 37: generating 3 parcels.
+  generated parcel: P37-0536 -> ıstanbul (priority: 1, status: in queue)
+  generated parcel: P37-1544 -> ıstanbul (priority: 1, status: in queue)
+  generated parcel: P37-2811 -> antalya (priority: 1, status: in queue)
+tick 37: processing parcels from arrival buffer.
+  processed parcel: P37-0536 to ıstanbul (status: sorted)
+  processed parcel: P37-1544 to ıstanbul (status: sorted)
+  processed parcel: P37-2811 to antalya (status: sorted)
+tick 37: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P13-0769 to ızmir (status: dispatched, dispatch tick: 37)
+
+[Tick 38]
+tick 38: generating 1 parcels.
+  generated parcel: P38-0543 -> ankara (priority: 1, status: in queue)
+tick 38: processing parcels from arrival buffer.
+  processed parcel: P38-0543 to ankara (status: sorted)
+tick 38: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P18-10 to ızmir (status: dispatched, dispatch tick: 38)
+
+[Tick 39]
+tick 39: generating 3 parcels.
+  generated parcel: P39-0750 -> ıstanbul (priority: 3, status: in queue)
+  generated parcel: P39-1870 -> antalya (priority: 1, status: in queue)
+  generated parcel: P39-2870 -> ıstanbul (priority: 3, status: in queue)
+tick 39: processing parcels from arrival buffer.
+  processed parcel: P39-0750 to ıstanbul (status: sorted)
+  processed parcel: P39-1870 to antalya (status: sorted)
+  processed parcel: P39-2870 to ıstanbul (status: sorted)
+tick 39: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P20-1983 to ızmir (status: dispatched, dispatch tick: 39)
+
+[Tick 40]
+tick 40: generating 1 parcels.
+  generated parcel: P40-0102 -> bursa (priority: 3, status: in queue)
+tick 40: processing parcels from arrival buffer.
+  processed parcel: P40-0102 to bursa (status: sorted)
+tick 40: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P21-0788 to ızmir (status: dispatched, dispatch tick: 40)
+
+[Tick 41]
+tick 41: generating 1 parcels.
+  generated parcel: P41-0101 -> bursa (priority: 1, status: in queue)
+tick 41: processing parcels from arrival buffer.
+  processed parcel: P41-0101 to bursa (status: sorted)
+tick 41: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P17-0921 to bursa (status: dispatched, dispatch tick: 41)
+
+[Tick 42]
+tick 42: generating 1 parcels.
+  generated parcel: P42-0954 -> ızmir (priority: 1, status: in queue)
+tick 42: processing parcels from arrival buffer.
+  processed parcel: P42-0954 to ızmir (status: sorted)
+tick 42: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P17-2552 to bursa (status: dispatched, dispatch tick: 42)
+
+[Tick 43]
+tick 43: generating 2 parcels.
+  generated parcel: P43-0128 -> bursa (priority: 3, status: in queue)
+  generated parcel: P43-1412 -> antalya (priority: 1, status: in queue)
+tick 43: processing parcels from arrival buffer.
+  processed parcel: P43-0128 to bursa (status: sorted)
+  processed parcel: P43-1412 to antalya (status: sorted)
+tick 43: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P24-2589 to bursa (status: dispatched, dispatch tick: 43)
+
+[Tick 44]
+tick 44: generating 1 parcels.
+  generated parcel: P44-0962 -> bursa (priority: 2, status: in queue)
+tick 44: processing parcels from arrival buffer.
+  processed parcel: P44-0962 to bursa (status: sorted)
+tick 44: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P30-0930 to bursa (status: dispatched, dispatch tick: 44)
+
+[Tick 45]
+tick 45: generating 1 parcels.
+  generated parcel: P45-0763 -> antalya (priority: 3, status: in queue)
+tick 45: processing parcels from arrival buffer.
+  processed parcel: P45-0763 to antalya (status: sorted)
+tick 45: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P30-2718 to bursa (status: dispatched, dispatch tick: 45)
+
+[Tick 46]
+tick 46: generating 2 parcels.
+  generated parcel: P46-0944 -> bursa (priority: 3, status: in queue)
+  generated parcel: P46-1326 -> ıstanbul (priority: 3, status: in queue)
+tick 46: processing parcels from arrival buffer.
+  processed parcel: P46-0944 to bursa (status: sorted)
+  processed parcel: P46-1326 to ıstanbul (status: sorted)
+tick 46: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P20-0646 to antalya (status: dispatched, dispatch tick: 46)
+
+[Tick 47]
+tick 47: generating 2 parcels.
+  generated parcel: P47-0980 -> ankara (priority: 1, status: in queue)
+  generated parcel: P47-1557 -> antalya (priority: 1, status: in queue)
+tick 47: processing parcels from arrival buffer.
+  processed parcel: P47-0980 to ankara (status: sorted)
+  processed parcel: P47-1557 to antalya (status: sorted)
+tick 47: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P26-0996 to antalya (status: dispatched, dispatch tick: 47)
+
+[Tick 48]
+tick 48: generating 1 parcels.
+  generated parcel: P48-0696 -> ızmir (priority: 1, status: in queue)
+tick 48: processing parcels from arrival buffer.
+  processed parcel: P48-0696 to ızmir (status: sorted)
+tick 48: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P27-1887 to antalya (status: dispatched, dispatch tick: 48)
+
+[Tick 49]
+tick 49: generating 2 parcels.
+  generated parcel: P49-0128 -> ıstanbul (priority: 3, status: in queue)
+  generated parcel: P49-1860 -> bursa (priority: 3, status: in queue)
+tick 49: processing parcels from arrival buffer.
+  processed parcel: P49-0128 to ıstanbul (status: sorted)
+  processed parcel: P49-1860 to bursa (status: sorted)
+tick 49: attempting to dispatch parcels for active terminal: antalya
+  misrouted parcel: P31-2894 -> antalya (status: returned, return count: 1)
+
+[Tick 50]
+tick 50: generating 2 parcels.
+  generated parcel: P50-0719 -> ankara (priority: 2, status: in queue)
+  generated parcel: P50-1882 -> antalya (priority: 3, status: in queue)
+tick 50: processing parcels from arrival buffer.
+  processed parcel: P50-0719 to ankara (status: sorted)
+  processed parcel: P50-1882 to antalya (status: sorted)
+tick 50: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P35-0414 to antalya (status: dispatched, dispatch tick: 50)
+
+[Tick 51]
+tick 51: generating 2 parcels.
+  generated parcel: P51-0174 -> bursa (priority: 2, status: in queue)
+  generated parcel: P51-1960 -> ıstanbul (priority: 1, status: in queue)
+tick 51: processing parcels from arrival buffer.
+  processed parcel: P51-0174 to bursa (status: sorted)
+  processed parcel: P51-1960 to ıstanbul (status: sorted)
+tick 51: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P20-210 to ıstanbul (status: dispatched, dispatch tick: 51)
+
+[Tick 52]
+tick 52: generating 3 parcels.
+  generated parcel: P52-0337 -> ankara (priority: 1, status: in queue)
+  generated parcel: P52-1904 -> ıstanbul (priority: 1, status: in queue)
+  generated parcel: P52-2753 -> ıstanbul (priority: 3, status: in queue)
+tick 52: processing parcels from arrival buffer.
+  processed parcel: P52-0337 to ankara (status: sorted)
+  processed parcel: P52-1904 to ıstanbul (status: sorted)
+  processed parcel: P52-2753 to ıstanbul (status: sorted)
+tick 52: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P21-1910 to ıstanbul (status: dispatched, dispatch tick: 52)
+
+[Tick 53]
+tick 53: generating 1 parcels.
+  generated parcel: P53-0473 -> ankara (priority: 3, status: in queue)
+tick 53: processing parcels from arrival buffer.
+  processed parcel: P53-0473 to ankara (status: sorted)
+tick 53: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P22-1200 to ıstanbul (status: dispatched, dispatch tick: 53)
+
+[Tick 54]
+tick 54: generating 1 parcels.
+  generated parcel: P54-0884 -> ankara (priority: 3, status: in queue)
+tick 54: processing parcels from arrival buffer.
+  processed parcel: P54-0884 to ankara (status: sorted)
+tick 54: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P24-1843 to ıstanbul (status: dispatched, dispatch tick: 54)
+
+[Tick 55]
+tick 55: generating 3 parcels.
+  generated parcel: P55-0890 -> bursa (priority: 3, status: in queue)
+  generated parcel: P55-1856 -> antalya (priority: 1, status: in queue)
+  generated parcel: P55-2565 -> ankara (priority: 1, status: in queue)
+tick 55: processing parcels from arrival buffer.
+  processed parcel: P55-0890 to bursa (status: sorted)
+  processed parcel: P55-1856 to antalya (status: sorted)
+  processed parcel: P55-2565 to ankara (status: sorted)
+tick 55: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P29-0486 to ıstanbul (status: dispatched, dispatch tick: 55)
+
+[Tick 56]
+tick 56: generating 3 parcels.
+  generated parcel: P56-0479 -> ıstanbul (priority: 3, status: in queue)
+  generated parcel: P56-1579 -> bursa (priority: 1, status: in queue)
+  generated parcel: P56-2265 -> ızmir (priority: 3, status: in queue)
+tick 56: processing parcels from arrival buffer.
+  processed parcel: P56-0479 to ıstanbul (status: sorted)
+  processed parcel: P56-1579 to bursa (status: sorted)
+  processed parcel: P56-2265 to ızmir (status: sorted)
+tick 56: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P22-0499 to ankara (status: dispatched, dispatch tick: 56)
+
+[Tick 57]
+tick 57: generating 3 parcels.
+  generated parcel: P57-0316 -> ankara (priority: 1, status: in queue)
+  generated parcel: P57-1441 -> bursa (priority: 3, status: in queue)
+  generated parcel: P57-2542 -> antalya (priority: 2, status: in queue)
+tick 57: processing parcels from arrival buffer.
+  processed parcel: P57-0316 to ankara (status: sorted)
+  processed parcel: P57-1441 to bursa (status: sorted)
+  processed parcel: P57-2542 to antalya (status: sorted)
+tick 57: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P26-1263 to ankara (status: dispatched, dispatch tick: 57)
+
+[Tick 58]
+tick 58: generating 2 parcels.
+  generated parcel: P58-091 -> ıstanbul (priority: 2, status: in queue)
+  generated parcel: P58-1914 -> ankara (priority: 2, status: in queue)
+tick 58: processing parcels from arrival buffer.
+  processed parcel: P58-091 to ıstanbul (status: sorted)
+  processed parcel: P58-1914 to ankara (status: sorted)
+tick 58: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P26-2665 to ankara (status: dispatched, dispatch tick: 58)
+
+[Tick 59]
+tick 59: generating 1 parcels.
+  generated parcel: P59-0879 -> ankara (priority: 1, status: in queue)
+tick 59: processing parcels from arrival buffer.
+  processed parcel: P59-0879 to ankara (status: sorted)
+tick 59: attempting to dispatch parcels for active terminal: ankara
+  misrouted parcel: P27-0574 -> ankara (status: returned, return count: 1)
+
+[Tick 60]
+tick 60: generating 3 parcels.
+  generated parcel: P60-0114 -> antalya (priority: 2, status: in queue)
+  generated parcel: P60-1239 -> bursa (priority: 2, status: in queue)
+  generated parcel: P60-2362 -> ankara (priority: 2, status: in queue)
+tick 60: processing parcels from arrival buffer.
+  processed parcel: P60-0114 to antalya (status: sorted)
+  processed parcel: P60-1239 to bursa (status: sorted)
+  processed parcel: P60-2362 to ankara (status: sorted)
+tick 60: attempting to dispatch parcels for active terminal: ankara
+  misrouted parcel: P28-1476 -> ankara (status: returned, return count: 1)
+
+[Tick 61]
+tick 61: generating 3 parcels.
+  generated parcel: P61-0544 -> bursa (priority: 3, status: in queue)
+  generated parcel: P61-1771 -> ızmir (priority: 2, status: in queue)
+  generated parcel: P61-2992 -> antalya (priority: 2, status: in queue)
+tick 61: processing parcels from arrival buffer.
+  processed parcel: P61-0544 to bursa (status: sorted)
+  processed parcel: P61-1771 to ızmir (status: sorted)
+  processed parcel: P61-2992 to antalya (status: sorted)
+tick 61: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P24-0615 to ızmir (status: dispatched, dispatch tick: 61)
+
+[Tick 62]
+tick 62: generating 1 parcels.
+  generated parcel: P62-0839 -> ıstanbul (priority: 3, status: in queue)
+tick 62: processing parcels from arrival buffer.
+  processed parcel: P62-0839 to ıstanbul (status: sorted)
+tick 62: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P25-0327 to ızmir (status: dispatched, dispatch tick: 62)
+
+[Tick 63]
+tick 63: generating 2 parcels.
+  generated parcel: P63-0724 -> ızmir (priority: 2, status: in queue)
+  generated parcel: P63-1604 -> antalya (priority: 1, status: in queue)
+tick 63: processing parcels from arrival buffer.
+  processed parcel: P63-0724 to ızmir (status: sorted)
+  processed parcel: P63-1604 to antalya (status: sorted)
+tick 63: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P25-1766 to ızmir (status: dispatched, dispatch tick: 63)
+
+[Tick 64]
+tick 64: generating 3 parcels.
+  generated parcel: P64-0727 -> ıstanbul (priority: 3, status: in queue)
+  generated parcel: P64-1313 -> bursa (priority: 3, status: in queue)
+  generated parcel: P64-2174 -> ıstanbul (priority: 3, status: in queue)
+tick 64: processing parcels from arrival buffer.
+  processed parcel: P64-0727 to ıstanbul (status: sorted)
+  processed parcel: P64-1313 to bursa (status: sorted)
+  processed parcel: P64-2174 to ıstanbul (status: sorted)
+tick 64: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P28-0775 to ızmir (status: dispatched, dispatch tick: 64)
+
+[Tick 65]
+tick 65: generating 3 parcels.
+  generated parcel: P65-0666 -> ızmir (priority: 3, status: in queue)
+  generated parcel: P65-1162 -> ızmir (priority: 2, status: in queue)
+  generated parcel: P65-2963 -> antalya (priority: 1, status: in queue)
+tick 65: processing parcels from arrival buffer.
+  processed parcel: P65-0666 to ızmir (status: sorted)
+  processed parcel: P65-1162 to ızmir (status: sorted)
+  processed parcel: P65-2963 to antalya (status: sorted)
+tick 65: attempting to dispatch parcels for active terminal: ızmir
+  misrouted parcel: P30-1430 -> ızmir (status: returned, return count: 1)
+
+[Tick 66]
+tick 66: generating 3 parcels.
+  generated parcel: P66-0362 -> ıstanbul (priority: 1, status: in queue)
+  generated parcel: P66-1993 -> antalya (priority: 3, status: in queue)
+  generated parcel: P66-2289 -> bursa (priority: 1, status: in queue)
+tick 66: processing parcels from arrival buffer.
+  processed parcel: P66-0362 to ıstanbul (status: sorted)
+  processed parcel: P66-1993 to antalya (status: sorted)
+  processed parcel: P66-2289 to bursa (status: sorted)
+tick 66: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P32-0277 to bursa (status: dispatched, dispatch tick: 66)
+
+[Tick 67]
+tick 67: generating 2 parcels.
+  generated parcel: P67-0671 -> ankara (priority: 3, status: in queue)
+  generated parcel: P67-1414 -> ızmir (priority: 3, status: in queue)
+tick 67: processing parcels from arrival buffer.
+  processed parcel: P67-0671 to ankara (status: sorted)
+  processed parcel: P67-1414 to ızmir (status: sorted)
+tick 67: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P33-0647 to bursa (status: dispatched, dispatch tick: 67)
+
+[Tick 68]
+tick 68: generating 3 parcels.
+  generated parcel: P68-0949 -> ankara (priority: 3, status: in queue)
+  generated parcel: P68-11 -> ızmir (priority: 1, status: in queue)
+  generated parcel: P68-2765 -> bursa (priority: 3, status: in queue)
+tick 68: processing parcels from arrival buffer.
+  processed parcel: P68-0949 to ankara (status: sorted)
+  processed parcel: P68-11 to ızmir (status: sorted)
+  processed parcel: P68-2765 to bursa (status: sorted)
+tick 68: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P34-1437 to bursa (status: dispatched, dispatch tick: 68)
+
+[Tick 69]
+tick 69: generating 1 parcels.
+  generated parcel: P69-0218 -> antalya (priority: 1, status: in queue)
+tick 69: processing parcels from arrival buffer.
+  processed parcel: P69-0218 to antalya (status: sorted)
+tick 69: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P40-0102 to bursa (status: dispatched, dispatch tick: 69)
+
+[Tick 70]
+tick 70: generating 1 parcels.
+  generated parcel: P70-0575 -> ıstanbul (priority: 2, status: in queue)
+tick 70: processing parcels from arrival buffer.
+  processed parcel: P70-0575 to ıstanbul (status: sorted)
+tick 70: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P41-0101 to bursa (status: dispatched, dispatch tick: 70)
+
+[Tick 71]
+tick 71: generating 2 parcels.
+  generated parcel: P71-0817 -> ızmir (priority: 3, status: in queue)
+  generated parcel: P71-1835 -> ızmir (priority: 1, status: in queue)
+tick 71: processing parcels from arrival buffer.
+  processed parcel: P71-0817 to ızmir (status: sorted)
+  processed parcel: P71-1835 to ızmir (status: sorted)
+tick 71: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P37-2811 to antalya (status: dispatched, dispatch tick: 71)
+
+[Tick 72]
+tick 72: generating 1 parcels.
+  generated parcel: P72-0118 -> antalya (priority: 2, status: in queue)
+tick 72: processing parcels from arrival buffer.
+  processed parcel: P72-0118 to antalya (status: sorted)
+tick 72: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P39-1870 to antalya (status: dispatched, dispatch tick: 72)
+
+[Tick 73]
+tick 73: generating 2 parcels.
+  generated parcel: P73-0362 -> ıstanbul (priority: 3, status: in queue)
+  generated parcel: P73-1569 -> bursa (priority: 1, status: in queue)
+tick 73: processing parcels from arrival buffer.
+  processed parcel: P73-0362 to ıstanbul (status: sorted)
+  processed parcel: P73-1569 to bursa (status: sorted)
+tick 73: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P43-1412 to antalya (status: dispatched, dispatch tick: 73)
+
+[Tick 74]
+tick 74: generating 3 parcels.
+  generated parcel: P74-0891 -> antalya (priority: 2, status: in queue)
+  generated parcel: P74-1295 -> antalya (priority: 3, status: in queue)
+  generated parcel: P74-2861 -> ızmir (priority: 2, status: in queue)
+tick 74: processing parcels from arrival buffer.
+  processed parcel: P74-0891 to antalya (status: sorted)
+  processed parcel: P74-1295 to antalya (status: sorted)
+  processed parcel: P74-2861 to ızmir (status: sorted)
+tick 74: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P45-0763 to antalya (status: dispatched, dispatch tick: 74)
+
+[Tick 75]
+tick 75: generating 3 parcels.
+  generated parcel: P75-0542 -> antalya (priority: 3, status: in queue)
+  generated parcel: P75-192 -> antalya (priority: 2, status: in queue)
+  generated parcel: P75-2908 -> ızmir (priority: 2, status: in queue)
+tick 75: processing parcels from arrival buffer.
+  processed parcel: P75-0542 to antalya (status: sorted)
+  processed parcel: P75-192 to antalya (status: sorted)
+  processed parcel: P75-2908 to ızmir (status: sorted)
+tick 75: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P47-1557 to antalya (status: dispatched, dispatch tick: 75)
+
+[Tick 76]
+tick 76: generating 2 parcels.
+  generated parcel: P76-0258 -> ıstanbul (priority: 1, status: in queue)
+  generated parcel: P76-1708 -> antalya (priority: 1, status: in queue)
+tick 76: processing parcels from arrival buffer.
+  processed parcel: P76-0258 to ıstanbul (status: sorted)
+  processed parcel: P76-1708 to antalya (status: sorted)
+tick 76: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P29-1816 to ıstanbul (status: dispatched, dispatch tick: 76)
+
+[Tick 77]
+tick 77: generating 1 parcels.
+  generated parcel: P77-0947 -> bursa (priority: 3, status: in queue)
+tick 77: processing parcels from arrival buffer.
+  processed parcel: P77-0947 to bursa (status: sorted)
+tick 77: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P37-0536 to ıstanbul (status: dispatched, dispatch tick: 77)
+
+[Tick 78]
+tick 78: generating 3 parcels.
+  generated parcel: P78-0944 -> ankara (priority: 3, status: in queue)
+  generated parcel: P78-1440 -> antalya (priority: 1, status: in queue)
+  generated parcel: P78-2168 -> ıstanbul (priority: 2, status: in queue)
+tick 78: processing parcels from arrival buffer.
+  processed parcel: P78-0944 to ankara (status: sorted)
+  processed parcel: P78-1440 to antalya (status: sorted)
+  processed parcel: P78-2168 to ıstanbul (status: sorted)
+tick 78: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P37-1544 to ıstanbul (status: dispatched, dispatch tick: 78)
+
+[Tick 79]
+tick 79: generating 1 parcels.
+  generated parcel: P79-0878 -> ankara (priority: 2, status: in queue)
+tick 79: processing parcels from arrival buffer.
+  processed parcel: P79-0878 to ankara (status: sorted)
+tick 79: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P39-0750 to ıstanbul (status: dispatched, dispatch tick: 79)
+
+[Tick 80]
+tick 80: generating 3 parcels.
+  generated parcel: P80-0884 -> ıstanbul (priority: 1, status: in queue)
+  generated parcel: P80-1286 -> bursa (priority: 1, status: in queue)
+  generated parcel: P80-272 -> bursa (priority: 2, status: in queue)
+tick 80: processing parcels from arrival buffer.
+  processed parcel: P80-0884 to ıstanbul (status: sorted)
+  processed parcel: P80-1286 to bursa (status: sorted)
+  processed parcel: P80-272 to bursa (status: sorted)
+tick 80: attempting to dispatch parcels for active terminal: ıstanbul
+  dispatched parcel: P39-2870 to ıstanbul (status: dispatched, dispatch tick: 80)
+
+[Tick 81]
+tick 81: generating 2 parcels.
+  generated parcel: P81-041 -> antalya (priority: 2, status: in queue)
+  generated parcel: P81-1498 -> antalya (priority: 1, status: in queue)
+tick 81: processing parcels from arrival buffer.
+  processed parcel: P81-041 to antalya (status: sorted)
+  processed parcel: P81-1498 to antalya (status: sorted)
+tick 81: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P29-2203 to ankara (status: dispatched, dispatch tick: 81)
+
+[Tick 82]
+tick 82: generating 1 parcels.
+  generated parcel: P82-0985 -> ıstanbul (priority: 2, status: in queue)
+tick 82: processing parcels from arrival buffer.
+  processed parcel: P82-0985 to ıstanbul (status: sorted)
+tick 82: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P31-0240 to ankara (status: dispatched, dispatch tick: 82)
+
+[Tick 83]
+tick 83: generating 3 parcels.
+  generated parcel: P83-0130 -> ızmir (priority: 1, status: in queue)
+  generated parcel: P83-116 -> ankara (priority: 1, status: in queue)
+  generated parcel: P83-2705 -> ızmir (priority: 1, status: in queue)
+tick 83: processing parcels from arrival buffer.
+  processed parcel: P83-0130 to ızmir (status: sorted)
+  processed parcel: P83-116 to ankara (status: sorted)
+  processed parcel: P83-2705 to ızmir (status: sorted)
+tick 83: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P10-1708 to ankara (status: dispatched, dispatch tick: 83)
+
+[Tick 84]
+tick 84: generating 1 parcels.
+  generated parcel: P84-0814 -> ızmir (priority: 3, status: in queue)
+tick 84: processing parcels from arrival buffer.
+  processed parcel: P84-0814 to ızmir (status: sorted)
+tick 84: attempting to dispatch parcels for active terminal: ankara
+  dispatched parcel: P38-0543 to ankara (status: dispatched, dispatch tick: 84)
+
+[Tick 85]
+tick 85: generating 2 parcels.
+  generated parcel: P85-0997 -> ızmir (priority: 2, status: in queue)
+  generated parcel: P85-1148 -> ızmir (priority: 2, status: in queue)
+tick 85: processing parcels from arrival buffer.
+  processed parcel: P85-0997 to ızmir (status: sorted)
+  processed parcel: P85-1148 to ızmir (status: sorted)
+tick 85: attempting to dispatch parcels for active terminal: ankara
+  misrouted parcel: P47-0980 -> ankara (status: returned, return count: 1)
+
+[Tick 86]
+tick 86: generating 1 parcels.
+  generated parcel: P86-0965 -> ızmir (priority: 3, status: in queue)
+tick 86: processing parcels from arrival buffer.
+  processed parcel: P86-0965 to ızmir (status: sorted)
+tick 86: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P31-1139 to ızmir (status: dispatched, dispatch tick: 86)
+
+[Tick 87]
+tick 87: generating 2 parcels.
+  generated parcel: P87-0801 -> ankara (priority: 3, status: in queue)
+  generated parcel: P87-1231 -> bursa (priority: 2, status: in queue)
+tick 87: processing parcels from arrival buffer.
+  processed parcel: P87-0801 to ankara (status: sorted)
+  processed parcel: P87-1231 to bursa (status: sorted)
+tick 87: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P34-050 to ızmir (status: dispatched, dispatch tick: 87)
+
+[Tick 88]
+tick 88: generating 1 parcels.
+  generated parcel: P88-0584 -> antalya (priority: 2, status: in queue)
+tick 88: processing parcels from arrival buffer.
+  processed parcel: P88-0584 to antalya (status: sorted)
+tick 88: attempting to dispatch parcels for active terminal: ızmir
+  misrouted parcel: P36-0849 -> ızmir (status: returned, return count: 1)
+
+[Tick 89]
+tick 89: generating 3 parcels.
+  generated parcel: P89-0666 -> ızmir (priority: 3, status: in queue)
+  generated parcel: P89-1366 -> bursa (priority: 1, status: in queue)
+  generated parcel: P89-2415 -> ankara (priority: 1, status: in queue)
+tick 89: processing parcels from arrival buffer.
+  processed parcel: P89-0666 to ızmir (status: sorted)
+  processed parcel: P89-1366 to bursa (status: sorted)
+  processed parcel: P89-2415 to ankara (status: sorted)
+tick 89: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P36-1559 to ızmir (status: dispatched, dispatch tick: 89)
+
+[Tick 90]
+tick 90: generating 3 parcels.
+  generated parcel: P90-0855 -> ıstanbul (priority: 2, status: in queue)
+  generated parcel: P90-1512 -> antalya (priority: 3, status: in queue)
+  generated parcel: P90-2634 -> ıstanbul (priority: 3, status: in queue)
+tick 90: processing parcels from arrival buffer.
+  processed parcel: P90-0855 to ıstanbul (status: sorted)
+  processed parcel: P90-1512 to antalya (status: sorted)
+  processed parcel: P90-2634 to ıstanbul (status: sorted)
+tick 90: attempting to dispatch parcels for active terminal: ızmir
+  dispatched parcel: P42-0954 to ızmir (status: dispatched, dispatch tick: 90)
+
+[Tick 91]
+tick 91: generating 1 parcels.
+  generated parcel: P91-0192 -> antalya (priority: 1, status: in queue)
+tick 91: processing parcels from arrival buffer.
+  processed parcel: P91-0192 to antalya (status: sorted)
+tick 91: attempting to dispatch parcels for active terminal: bursa
+  misrouted parcel: P43-0128 -> bursa (status: returned, return count: 1)
+
+[Tick 92]
+tick 92: generating 3 parcels.
+  generated parcel: P92-0343 -> antalya (priority: 2, status: in queue)
+  generated parcel: P92-1607 -> ankara (priority: 2, status: in queue)
+  generated parcel: P92-2192 -> antalya (priority: 3, status: in queue)
+tick 92: processing parcels from arrival buffer.
+  processed parcel: P92-0343 to antalya (status: sorted)
+  processed parcel: P92-1607 to ankara (status: sorted)
+  processed parcel: P92-2192 to antalya (status: sorted)
+tick 92: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P44-0962 to bursa (status: dispatched, dispatch tick: 92)
+
+[Tick 93]
+tick 93: generating 1 parcels.
+  generated parcel: P93-0966 -> antalya (priority: 3, status: in queue)
+tick 93: processing parcels from arrival buffer.
+  processed parcel: P93-0966 to antalya (status: sorted)
+tick 93: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P46-0944 to bursa (status: dispatched, dispatch tick: 93)
+
+[Tick 94]
+tick 94: generating 2 parcels.
+  generated parcel: P94-0230 -> bursa (priority: 2, status: in queue)
+  generated parcel: P94-1425 -> ızmir (priority: 1, status: in queue)
+tick 94: processing parcels from arrival buffer.
+  processed parcel: P94-0230 to bursa (status: sorted)
+  processed parcel: P94-1425 to ızmir (status: sorted)
+tick 94: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P49-1860 to bursa (status: dispatched, dispatch tick: 94)
+
+[Tick 95]
+tick 95: generating 3 parcels.
+  generated parcel: P95-0907 -> ankara (priority: 1, status: in queue)
+  generated parcel: P95-178 -> ıstanbul (priority: 3, status: in queue)
+  generated parcel: P95-2279 -> antalya (priority: 3, status: in queue)
+tick 95: processing parcels from arrival buffer.
+  processed parcel: P95-0907 to ankara (status: sorted)
+  processed parcel: P95-178 to ıstanbul (status: sorted)
+  processed parcel: P95-2279 to antalya (status: sorted)
+tick 95: attempting to dispatch parcels for active terminal: bursa
+  dispatched parcel: P51-0174 to bursa (status: dispatched, dispatch tick: 95)
+
+[Tick 96]
+tick 96: generating 3 parcels.
+  generated parcel: P96-0797 -> antalya (priority: 3, status: in queue)
+  generated parcel: P96-1982 -> ızmir (priority: 2, status: in queue)
+  generated parcel: P96-2740 -> ankara (priority: 3, status: in queue)
+tick 96: processing parcels from arrival buffer.
+  processed parcel: P96-0797 to antalya (status: sorted)
+  processed parcel: P96-1982 to ızmir (status: sorted)
+  processed parcel: P96-2740 to ankara (status: sorted)
+tick 96: attempting to dispatch parcels for active terminal: antalya
+  misrouted parcel: P50-1882 -> antalya (status: returned, return count: 1)
+
+[Tick 97]
+tick 97: generating 1 parcels.
+  generated parcel: P97-0117 -> ankara (priority: 1, status: in queue)
+tick 97: processing parcels from arrival buffer.
+  processed parcel: P97-0117 to ankara (status: sorted)
+tick 97: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P31-2894 to antalya (status: dispatched, dispatch tick: 97)
+
+[Tick 98]
+tick 98: generating 2 parcels.
+  generated parcel: P98-0690 -> antalya (priority: 3, status: in queue)
+  generated parcel: P98-1470 -> ızmir (priority: 1, status: in queue)
+tick 98: processing parcels from arrival buffer.
+  processed parcel: P98-0690 to antalya (status: sorted)
+  processed parcel: P98-1470 to ızmir (status: sorted)
+tick 98: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P55-1856 to antalya (status: dispatched, dispatch tick: 98)
+
+[Tick 99]
+tick 99: generating 3 parcels.
+  generated parcel: P99-0344 -> antalya (priority: 1, status: in queue)
+  generated parcel: P99-1675 -> ızmir (priority: 3, status: in queue)
+  generated parcel: P99-2579 -> bursa (priority: 1, status: in queue)
+tick 99: processing parcels from arrival buffer.
+  processed parcel: P99-0344 to antalya (status: sorted)
+  processed parcel: P99-1675 to ızmir (status: sorted)
+  processed parcel: P99-2579 to bursa (status: sorted)
+tick 99: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P57-2542 to antalya (status: dispatched, dispatch tick: 99)
+
+[Tick 100]
+tick 100: generating 2 parcels.
+  generated parcel: P100-0632 -> ankara (priority: 3, status: in queue)
+  generated parcel: P100-1114 -> antalya (priority: 2, status: in queue)
+tick 100: processing parcels from arrival buffer.
+  processed parcel: P100-0632 to ankara (status: sorted)
+  processed parcel: P100-1114 to antalya (status: sorted)
+tick 100: attempting to dispatch parcels for active terminal: antalya
+  dispatched parcel: P60-0114 to antalya (status: dispatched, dispatch tick: 100)
