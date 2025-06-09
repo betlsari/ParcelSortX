@@ -293,20 +293,20 @@ public class SimulationEngine {
             Parcel delayed = parcelTracker.getMostDelayedParcel();
             if (delayed != null) {
                 writer.println("Longest delayed parcel: " + delayed.getTrackingNumber()
-                        + " | Delay: " + delayed.getDelay() + " ticks");
+                        + " Delay: " + delayed.getDelay() + " ticks");
             }
 
-            ArrivalBuffer<Parcel> dispatchQueue;
+            ArrivalBuffer<Parcel> dispatchQueue = null;
 			writer.println("Remaining in Queue: " + dispatchQueue.size());
             writer.println("Remaining in ReturnStack: " + returnStack.size());
             writer.println("Remaining in BST: " + destinationSorter.countAllParcels());
 
-            writer.println("\n--- Parcel Tracker Records ---");
+            writer.println("\n Parcel Tracker's  Records ");
             for (String record : parcelTracker.getAllParcelRecords()) {
                 writer.println(record);
             }
 
-            writer.println("=== END OF REPORT ===");
+            writer.println("End");
 
         } catch (IOException e) {
             e.printStackTrace();

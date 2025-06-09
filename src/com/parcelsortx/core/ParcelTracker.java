@@ -111,4 +111,9 @@ public class ParcelTracker {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public void updateStatus(String trackingNumber, String string) {
+		// TODO Auto-generated method stub
+		
+	}
 }
