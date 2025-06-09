@@ -283,7 +283,7 @@ public class SimulationEngine {
     }
     public void generateFinalReport() {
         try (PrintWriter writer = new PrintWriter(new FileWriter("report.txt"))) {
-            writer.println("=== FINAL REPORT ===");
+            writer.println(" final report");
 
             writer.println("Total parcels processed: " + parcelTracker.getTotalParcels());
 
