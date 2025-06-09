@@ -41,21 +41,21 @@ Data Structures:
 
 ## 🗂️ Project Structure
 
-ParcelSortX/
-│
-├── src/
-│ ├── Main.java
-│ ├── Parcel.java
-│ ├── ParcelManager.java
-│ ├── DestinationSorter.java
-│ ├── PriorityHandler.java
-│ ├── HashTableTracker.java
-│ ├── CircularDeliveryList.java
-│ └── SimulationController.java
-│
-├── README.md
-└── report/
-└── ParcelSortX_Requirements.pdf
+ParcelSortX/  
+│  
+├── src/  
+│ ├── Main.java  
+│ ├── Parcel.java  
+│ ├── ParcelManager.java  
+│ ├── DestinationSorter.java  
+│ ├── PriorityHandler.java  
+│ ├── HashTableTracker.java  
+│ ├── CircularDeliveryList.java  
+│ └── SimulationController.java  
+│  
+├── README.md  
+└── report/  
+└── ParcelSortX_Requirements.pdf  
 
 
 
