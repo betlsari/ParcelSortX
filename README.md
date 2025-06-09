@@ -57,9 +57,37 @@ ParcelSortX/
 └── report/  
 └── ParcelSortX_Requirements.pdf  
 
+## 🚀 Installation and Operation  
+
+### ✨ Requirements  
+
+- 📌 Java Development Kit (JDK) 17 or later  
+- 📌 A Java IDE (IntelliJ IDEA, Eclipse, etc.) or terminal
+  
+### 🚀 Operating Steps
+
+1️⃣ Place all `.java` files in the `com.escaping.maze` package structure.  
+2️⃣ Compile from the command line:  
+```bash  
+javac parcelsortx/**/*.java  
+```  
+3️⃣ Run the program:  
+
+```bash  
+java parcelsortx.SimulationController  
+```  
+
+---  
+## 📝License  
+
+This project is for educational purposes only.  
 
 
+## 👩‍💻 Authors  
 
+- 😍 Ece Akın  
+- 😎 Betül Sarı  
+- 🌻 Zehra Sıla Özdizlekli  
 
 
 
