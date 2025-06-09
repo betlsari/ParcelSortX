@@ -33,11 +33,11 @@ Data Structures:
 
 ## 🔁 How It Works
 
--**Acceptance of a Packet:** Users enter the package information (ID, sender, receiver, destination, priority) into the system.
--**Ordering:** Packets are placed in the appropriate nodes in the binary search tree according to their destinations.
--**Tracking:** Packets are recorded in a hash table for quick access.
--**Delivery Cycle:** Delivery routes are modeled as a continuous cycle with a circular linked list.
--**Priority Packets:** Priority packets are placed ahead of the standard queue using a stack structure.
+-**Acceptance of a Packet:** Users enter the package information (ID, sender, receiver, destination, priority) into the system.  
+-**Ordering:** Packets are placed in the appropriate nodes in the binary search tree according to their destinations.  
+-**Tracking:** Packets are recorded in a hash table for quick access.  
+-**Delivery Cycle:** Delivery routes are modeled as a continuous cycle with a circular linked list.  
+-**Priority Packets:** Priority packets are placed ahead of the standard queue using a stack structure.  
 
 ## 🗂️ Project Structure
 
