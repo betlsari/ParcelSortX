@@ -30,12 +30,12 @@ The system is modular and composed of the following main components:
 
 ## :package: Data Structures Used
 
-Data Structures:
--Queue : Receiving and processing packets in order
--Stack: Management of priority packages
--Binary Search Tree: Sorting and grouping of packages by destination
--Hash Table: Fast and effective finding of package IDs
--Circular Linked List: Management of delivery vehicle routes
+Data Structures:  
+-Queue : Receiving and processing packets in order  
+-Stack: Management of priority packages  
+-Binary Search Tree: Sorting and grouping of packages by destination  
+-Hash Table: Fast and effective finding of package IDs  
+-Circular Linked List: Management of delivery vehicle routes  
 
 ## :round_pushpin: How It Works
 
