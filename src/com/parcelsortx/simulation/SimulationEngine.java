@@ -107,7 +107,7 @@ public class SimulationEngine {
             System.err.println("error writing to log in generateParcels: " + e.getMessage());
         }
         System.out.println("tick " + currentTick + ": generating " + numParcelsToGenerate + " parcels.");
-
+        
         for (int i = 0; i < numParcelsToGenerate; i++) {
             String parcelID = "P" + currentTick + "-" + i + random.nextInt(1000);
             String destinationCity = cities.get(random.nextInt(cities.size()));

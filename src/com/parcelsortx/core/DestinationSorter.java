@@ -181,8 +181,7 @@ public class DestinationSorter {
 		if (node == null) {
 			return 0;
 		}
-		// Mevcut düğümdeki koli sayısı + sol ağaçtaki koli sayısı + sağ ağaçtaki kolisayısı
-		return node.getParcelCount() + countAllParcelsRecursive(node.left) + countAllParcelsRecursive(node.right);
+ 		return node.getParcelCount() + countAllParcelsRecursive(node.left) + countAllParcelsRecursive(node.right);
 	}
 
 }
