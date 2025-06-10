@@ -8,4 +8,4 @@ PARCEL_PER_TICK_MAX=3
 MISROUTING_RATE=0.1
 
 # Şehir listesi (virgül ile ayrılmış)
-CITY_LIST=Istanbul,Ankara,Izmir,Bursa,Antalya
+CITY_LIST=Istanbul , Ankara , Izmir , Bursa , Antalya

@@ -78,20 +78,15 @@ public class SimulationEngine {
 
         generateParcels();
         processQueue();
-        System.out.println("  [DEBUG] ReturnStack size BEFORE dispatch: " + returnStack.size());
+        
         
         dispatchParcels();
-        System.out.println("  [DEBUG] ReturnStack size AFTER dispatch: " + returnStack.size());
 
         if (currentTick % 3 == 0) {
-        	  System.out.println("  [DEBUG] Attempting to reprocess. ReturnStack size BEFORE reprocess: " + returnStack.size());
               reprocessReturnedParcels();
-              System.out.println("  [DEBUG] ReturnStack size AFTER reprocess: " + returnStack.size());
        
         }
-        else {
-            System.out.println("  [DEBUG] No reprocessing this tick (currentTick % 3 != 0). ReturnStack size: " + returnStack.size());
-        }
+        
         if (currentTick % config.getInt("TERMINAL_ROTATION_INTERVAL") == 0) {
             rotateTerminal(currentTick);
         }

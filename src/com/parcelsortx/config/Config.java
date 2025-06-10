@@ -21,7 +21,6 @@ public class Config {
             while ((line = reader.readLine()) != null) {
                 line = line.trim();
 
-                // Yorum satırlarını ve boş satırları atla
                 if (line.isEmpty() || line.startsWith("#")) continue;
 
                 String[] parts = line.split("=", 2);
@@ -52,7 +51,6 @@ public class Config {
              return new ArrayList<>();
          }
 
-         // Şehir isimlerini virgülle ayır, her birini boşluklardan temizle ve küçük harfe çevir
          String[] cityArray = cities.split(",");
          List<String> normalizedCityList = new ArrayList<>();
          for (String city : cityArray) {
