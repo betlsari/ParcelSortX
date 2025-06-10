@@ -1,5 +1,4 @@
 package com.parcelsortx.core;
-import java.util.LinkedList;
 import java.util.Locale; // Locale sınıfını import etmeyi unutmayın
 
 import com.parcelsortx.model.Parcel;
@@ -14,7 +13,7 @@ public class TerminalRotator {
 		}
 	}
 
-	private Node current; // currentActiveTerminal
+	private Node current; 
 
 	public void initializeFromCityList(String[] cities) {
 		if (cities == null || cities.length == 0)

@@ -2,7 +2,7 @@ package com.parcelsortx.core;
 
 import com.parcelsortx.model.Parcel;
 
-public class ArrivalBuffer<T extends Parcel> { // T tipini Parcel sınıfıyla sınırladık getParcelID vs kullanabilmek için
+public class ArrivalBuffer<T extends Parcel> { 
 	private static class Node<T> {
 		T data;
 		Node<T> next;

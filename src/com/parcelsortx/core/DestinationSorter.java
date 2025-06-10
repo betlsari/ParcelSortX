@@ -1,12 +1,11 @@
 package com.parcelsortx.core;
 
-import java.util.LinkedList;
-import java.util.Locale; // Locale sınıfını import et
+import java.util.Locale;
 
 import com.parcelsortx.model.Parcel;
 
 public class DestinationSorter {
-	/* ECE */
+
 	private DestinationSorterNode root;
 	private int numOfNodes;
 
@@ -25,8 +24,8 @@ public class DestinationSorter {
 			System.err.println("Eklenecek paket null olamaz");
 			return;
 		}
-		// Paket hedef şehrini Türkçe locale'ine göre normalleştir
-		root = insertParcelRecursive(root, parcel.getDestinationCity().trim().toLowerCase(new Locale("tr", "TR")), parcel);
+		root = insertParcelRecursive(root, parcel.getDestinationCity().trim().toLowerCase(new Locale("tr", "TR")),
+				parcel);
 	}
 
 	/*
@@ -43,11 +42,9 @@ public class DestinationSorter {
 			Parcel parcel) {
 		if (current == null) {
 			numOfNodes++;
-			// Yeni düğüm oluştururken de normalize edilmiş şehir adını kullan
 			return new DestinationSorterNode(normalizedCityName, parcel);
 		}
 
-		// Normalize edilmiş şehir adı ile mevcut düğümün şehir adını karşılaştır
 		int compareResult = normalizedCityName.compareTo(current.cityName);
 
 		if (compareResult < 0) {
@@ -55,33 +52,26 @@ public class DestinationSorter {
 		} else if (compareResult > 0) {
 			current.right = insertParcelRecursive(current.right, normalizedCityName, parcel);
 		} else {
-			// Şehir zaten mevcutsa, paketi o düğümün listesine ekle
 			current.parcelList.enqueue(parcel);
-			// En yoğun şehri güncelle (eğer bu düğümdeki koli sayısı en yüksekse)
 			if (current.getParcelCount() > highestParcelLoadCount) {
 				highestParcelLoadCount = current.getParcelCount();
-				cityWithHighestParcel = current.cityName; // Bu zaten normalize edilmiş hali
+				cityWithHighestParcel = current.cityName; 
 			}
 		}
 		return current;
 	}
 	/*
 	 * getcityparcels findNode ile ilgili şehir düğümünü bulur düğüm bulunursa
-	 * parcellist döndürür aksi takdirde null döner
-	 * 
-	 * findnode eğer current null veya aranan şehir = current , currentı döndürür
-	 * aranan şehir currentten önce ise sol alt ağaca sonra geliyosa sağ alt ağaca
-	 * bakar
-	 * 
+	 * parcellist döndürür aksi takdirde null döner   findnode eğer current null
+	 * veya aranan şehir = current , currentı döndürür aranan şehir currentten önce
+	 * ise sol alt ağaca sonra geliyosa sağ alt ağaca bakar  
 	 */
 
 	public ArrivalBuffer<Parcel> getCityParcels(String city) {
-		// Gelen şehir adını Türkçe locale'ine göre normalleştir ve findNode'a gönder
 		String normalizedCity = city.trim().toLowerCase(new Locale("tr", "TR"));
 		DestinationSorterNode node = findNode(root, normalizedCity);
 		if (node == null) {
-			// Normalleştirilmiş şehir adı bulunamadığında bu mesajı göster
-			System.out.println("Şehir bulunamadı: " + city); // Hatanın daha iyi anlaşılması için orijinal şehri göster
+			System.out.println("Şehir bulunamadı: " + city); 
 			return null;
 		}
 		return node.getParcelList();
@@ -89,7 +79,6 @@ public class DestinationSorter {
 
 	private DestinationSorterNode findNode(DestinationSorterNode current, String normalizedCity) {
 		while (current != null) {
-			// Normalize edilmiş şehir adını mevcut düğümün şehir adıyla karşılaştır
 			int compare = normalizedCity.compareTo(current.cityName);
 
 			if (compare == 0) {
@@ -105,11 +94,8 @@ public class DestinationSorter {
 
 	/*
 	 * inordertraversal tüm şehirleri alfabetik sıraya göre gezer her şehrin paket
-	 * sayısını konsola yazdırır
-	 * 
-	 * recursive node null ise geri döner ilk sol alt ağaç sonra sağ alt ağaç
-	 * gezilir
-	 * 
+	 * sayısını konsola yazdırır   recursive node null ise geri döner ilk sol alt
+	 * ağaç sonra sağ alt ağaç gezilir  
 	 */
 	public void inOrderTraversal() {
 		System.out.println("alfabetik sirada sehirler:");
@@ -125,16 +111,12 @@ public class DestinationSorter {
 	}
 
 	/*
-	 * removeparcel
-	 * 
-	 * önce findNode ile hedef şehir düğümü bulunur düğüm bulunursa düğümün
-	 * parcellisti üzerinde removeıf metodu ile parcelıd eşleşen paketi kaldırır
-	 * işlem başarılı ise true değilse false düğüm değil paket kaldırılır
-	 * 
+	 * removeparcel   önce findNode ile hedef şehir düğümü bulunur düğüm bulunursa
+	 * düğümün parcellisti üzerinde removeıf metodu ile parcelıd eşleşen paketi
+	 * kaldırır işlem başarılı ise true değilse false düğüm değil paket kaldırılır  
 	 */
 
 	public boolean removeParcel(String city, String parcelID) {
-		// Gelen şehir adını Türkçe locale'ine göre normalleştir ve findNode'a gönder
 		String normalizedCity = city.trim().toLowerCase(new Locale("tr", "TR"));
 		DestinationSorterNode node = findNode(root, normalizedCity);
 		if (node != null) {
@@ -145,11 +127,9 @@ public class DestinationSorter {
 
 	public int countCityParcels(String city) {
 		DestinationSorterNode current = root;
-		// Gelen şehir adını Türkçe locale'ine göre normalleştir
 		String normalizedCity = city.trim().toLowerCase(new Locale("tr", "TR"));
 
 		while (current != null) {
-			// Normalize edilmiş şehir adını mevcut düğümün şehir adıyla karşılaştır
 			int cmp = normalizedCity.compareTo(current.cityName);
 
 			if (cmp == 0) {
@@ -161,7 +141,7 @@ public class DestinationSorter {
 			}
 		}
 
-		System.out.println("Sehir bulunamadi: " + city); // Hatanın daha iyi anlaşılması için orijinal şehri göster
+		System.out.println("Sehir bulunamadi: " + city); 
 		return 0;
 	}
 
@@ -193,8 +173,6 @@ public class DestinationSorter {
 		return highestParcelLoadCount;
 	}
 
-	
-
 	public int countAllParcels() {
 		return countAllParcelsRecursive(root);
 	}
@@ -203,7 +181,7 @@ public class DestinationSorter {
 		if (node == null) {
 			return 0;
 		}
-		// Mevcut düğümdeki koli sayısı + sol ağaçtaki koli sayısı + sağ ağaçtaki koli sayısı
+		// Mevcut düğümdeki koli sayısı + sol ağaçtaki koli sayısı + sağ ağaçtaki kolisayısı
 		return node.getParcelCount() + countAllParcelsRecursive(node.left) + countAllParcelsRecursive(node.right);
 	}
 
