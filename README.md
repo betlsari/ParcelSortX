@@ -88,10 +88,10 @@ ParcelSortX/
   
 ### 🚀 Operating Steps
 
-1️⃣ Place all `.java` files in the `com.escaping.maze` package structure.  
+1️⃣ Place all `.java` files  inside the `parcelsortx ` package structure.  
 2️⃣ Compile from the command line:  
 ```bash  
-javac parcelsortx/**/*.java  
+javac parcelsortx/**/*.java
 ```  
 3️⃣ Run the program:  
 
