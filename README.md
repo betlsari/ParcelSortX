@@ -1,4 +1,5 @@
-# ParcelSortX
+# ParcelSortX 
+**This project was developed within the scope of the **Izmir Kâtip Çelebi University CENG202 - Data Structures** course.**
 **ParcelSortX** is a "Smart Package Sorting and Routing Simulation" using classical data structures.
 This project is a logistics simulation involving packet reception, sorting, routing, and delivery using basic data structures such as queues, stacks, binary search trees, circularly linked, hash tables, and lists. The goal is to test these data structures in a real-world context.
 ---
