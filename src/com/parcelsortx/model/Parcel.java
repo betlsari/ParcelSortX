@@ -12,7 +12,9 @@ public class Parcel{
 	private int priority; // 1=low,2=medium,3=high
 	private String size; //"small","medium","large"
 	private int arrivalTrick;
+	private int dispatchTick; 
 	private Status status;
+	
 	
 	
 	
@@ -78,7 +80,12 @@ public class Parcel{
 		this.status=dispatched;
 	}
 	
-	
+	public int getDispatchTick() {
+        return dispatchTick;
+    }
+	public void setDispatchTick(int dispatchTick) {
+        this.dispatchTick = dispatchTick;
+    } 
 	@Override //metodun üst sınıftaki bir metodu yeniden yazdığını belirtir
 	public String toString() {
 		return "Parcel: {" + "parcelID: " + parcelID + "\n" +
@@ -90,13 +97,15 @@ public class Parcel{
 	}
 
 	public String getTrackingNumber() {
-		
-		return null;
+		return this.parcelID;
 	}
 
-	public String getDelay() {
+	public int getDelay() {
 		
-		return null;
+		if (this.status == Status.Dispatched && this.dispatchTick > 0) {
+			return this.dispatchTick - this.arrivalTrick;
+        }
+        return -1;
 	}
 
 	

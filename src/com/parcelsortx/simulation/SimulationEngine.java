@@ -297,26 +297,71 @@ public class SimulationEngine {
     }
     public void generateFinalReport() {
         try (PrintWriter writer = new PrintWriter(new FileWriter("report.txt"))) {
-            writer.println(" final report");
+            writer.println("Final Report");
 
-            writer.println("Total parcels processed: " + parcelTracker.getTotalParcels());
-
-            String busiestCity = destinationSorter.getCityWithHighestParcelLoad();
-            writer.println("Busiest destination: " + busiestCity);
-
-            Parcel delayed = parcelTracker.getMostDelayedParcel();
-            if (delayed != null) {
-                writer.println("Longest delayed parcel: " + delayed.getTrackingNumber()
-                        + " Delay: " + delayed.getDelay() + " ticks");
+            // Toplam işlenen kargolar
+            if (parcelTracker != null) {
+                writer.println("Total parcels processed: " + parcelTracker.getTotalParcels());
+            } else {
+                writer.println("Total parcels processed: N/A (parcelTracker is null)");
             }
 
-			writer.println("Remaining in Queue: " + arrivalBuffer.size());
-            writer.println("Remaining in ReturnStack: " + returnStack.size());
-            writer.println("Remaining in BST: " + destinationSorter.countAllParcels());
+            
+            if (destinationSorter != null) {
+                String busiestCity = destinationSorter.getCityWithHighestParcelLoad();
+                if (busiestCity != null) {
+                    writer.println("Busiest destination: " + busiestCity);
+                } else {
+                    writer.println("Busiest destination: no data");
+                }
+            } else {
+                writer.println("Busiest destination: destinationSorter is null");
+            }
 
-            writer.println("\n Parcel Tracker's  Records ");
-            for (String record : parcelTracker.getAllParcelRecords()) {
-                writer.println(record);
+            
+            if (parcelTracker != null) {
+                Parcel delayed = parcelTracker.getMostDelayedParcel();
+                if (delayed != null) {
+                    writer.println("Longest delayed parcel: " + delayed.getTrackingNumber()
+                            + " Delay: " + delayed.getDelay() + " ticks");
+                } else {
+                    writer.println("Longest delayed parcel:no delayed parcels");
+                }
+            } else {
+                writer.println("Longest delayed parcel:parcelTracker is null");
+            }
+
+        
+            if (arrivalBuffer != null) {
+                writer.println("Remaining in Queue: " + arrivalBuffer.size());
+            } else {
+                writer.println("Remaining in Queue:arrivalBuffer is null");
+            }
+
+            // ReturnStack'te kalan paketler
+            if (returnStack != null) {
+                writer.println("Remaining in ReturnStack: " + returnStack.size());
+            } else {
+                writer.println("Remaining in ReturnStack:returnStack is null");
+            }
+
+            // BST'de kalan paketler
+            if (destinationSorter != null) {
+                writer.println("Remaining in BST: " + destinationSorter.countAllParcels());
+            } else {
+                writer.println("Remaining in BST: N/A destinationSorter is null");
+            }
+
+            // Parcel Tracker kayıtları
+            writer.println("\nParcel Tracker's Records");
+            if (parcelTracker != null && parcelTracker.getAllParcelRecords() != null) {
+                for (String record : parcelTracker.getAllParcelRecords()) {
+                    if (record != null) {
+                        writer.println(record);
+                    }
+                }
+            } else {
+                writer.println("No parcel records available.");
             }
 
             writer.println("End");
@@ -327,7 +372,6 @@ public class SimulationEngine {
 
         System.out.println("Final report generated. Log file closed.");
     }
-
     // Yardımcı dosya kapama
     private void closeLogger() {
         try {
