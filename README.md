@@ -8,7 +8,7 @@ ParcelSortX simulates the package's progress cycle from the moment it is picked 
 
 -Intelligent packet logging and tracking
 -Using Binary Search Tree for dynamic route-based sorting
--Stack structure for priority management
+-Stack structure for priority management  
 -Using Hash Table for fast packet discovery
 
 ## 🧠 System Architecture
