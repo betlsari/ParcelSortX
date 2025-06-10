@@ -14,9 +14,9 @@ public class Main {
 	        try {
 	            engine.initialize();
 	            engine.runSimulation();
-	            System.out.println("✅ Simülasyon başarıyla tamamlandı.");
+	            System.out.println("Simülasyon başarılı.");
 	        } catch (Exception e) {
-	            System.err.println("❌ Simülasyon sırasında hata oluştu:");
+	            System.err.println("Simülasyon hatalı");
 	            e.printStackTrace();
 	        }
 

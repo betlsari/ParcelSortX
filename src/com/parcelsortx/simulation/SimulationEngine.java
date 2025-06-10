@@ -9,8 +9,7 @@ import java.io.*;
 import java.util.*;
 
 public class SimulationEngine {
-   // private static final int TERMINAL_ROTATION_INTERVAL = 0;
-	private int currentTick;
+ 	private int currentTick;
     private int maxTicks;
 
     private ArrivalBuffer<Parcel> arrivalBuffer;
@@ -20,19 +19,17 @@ public class SimulationEngine {
     private TerminalRotator terminalRotator;
     private Config config;
 
-    private List<String> cities; // Yeni eklenen alan
-    private int parcelPerTickMin; // Yeni alan
-    private int parcelPerTickMax; // Yeni alan
+    private List<String> cities; 
+    private int parcelPerTickMin;  
+    private int parcelPerTickMax;  
     
     private Random random;
     private List<Parcel> allParcels;
     private BufferedWriter logWriter;
 
-    // 1. INITIALIZE
-    public void initialize() {
+     public void initialize() {
         try {
-            // Konfigürasyon dosyasını oku
-            config = new Config("src/com/parcelsortx/config/config.txt");
+             config = new Config("src/com/parcelsortx/config/config.txt");
 
             maxTicks = config.getInt("MAX_TICKS");
             int queueCapacity = config.getInt("QUEUE_CAPACITY");
@@ -48,11 +45,10 @@ public class SimulationEngine {
             this.cities = config.getCityList();
             random = new Random();
             allParcels = new ArrayList<>();
-            this.parcelPerTickMin = config.getInt("PARCEL_PER_TICK_MIN"); // Değeri al ve atama yap
-            this.parcelPerTickMax = config.getInt("PARCEL_PER_TICK_MAX"); // Değeri al ve atama yap
+            this.parcelPerTickMin = config.getInt("PARCEL_PER_TICK_MIN");  
+            this.parcelPerTickMax = config.getInt("PARCEL_PER_TICK_MAX");  
 
-            // Log dosyasını aç
-            logWriter = new BufferedWriter(new FileWriter("log.txt"));
+             logWriter = new BufferedWriter(new FileWriter("log.txt"));
 
             System.out.println("Simülasyon başlatıldı...");
             logWriter.write("Simülasyon başlatıldı...\n");
@@ -62,8 +58,7 @@ public class SimulationEngine {
         }
     }
 
-    // 2. RUN SIMULATION
-    public void runSimulation() {
+     public void runSimulation() {
         for (currentTick = 1; currentTick <= maxTicks; currentTick++) {
             processTick();
         }
@@ -72,26 +67,20 @@ public class SimulationEngine {
         closeLogger();
     }
 
-    // 3. PROCESS TICK
-    private void processTick() {
+     private void processTick() {
         logHeader();
 
         generateParcels();
         processQueue();
-        System.out.println("  [DEBUG] ReturnStack size BEFORE dispatch: " + returnStack.size());
+        
         
         dispatchParcels();
-        System.out.println("  [DEBUG] ReturnStack size AFTER dispatch: " + returnStack.size());
 
         if (currentTick % 3 == 0) {
-        	  System.out.println("  [DEBUG] Attempting to reprocess. ReturnStack size BEFORE reprocess: " + returnStack.size());
               reprocessReturnedParcels();
-              System.out.println("  [DEBUG] ReturnStack size AFTER reprocess: " + returnStack.size());
        
         }
-        else {
-            System.out.println("  [DEBUG] No reprocessing this tick (currentTick % 3 != 0). ReturnStack size: " + returnStack.size());
-        }
+        
         if (currentTick % config.getInt("TERMINAL_ROTATION_INTERVAL") == 0) {
             rotateTerminal(currentTick);
         }
@@ -100,8 +89,7 @@ public class SimulationEngine {
 
     }
 
-    // Yardımcı log başlığı
-    private void logHeader() {
+     private void logHeader() {
         try {
             logWriter.write("\n[Tick " + currentTick + "]\n");
             logWriter.flush();
@@ -119,7 +107,7 @@ public class SimulationEngine {
             System.err.println("error writing to log in generateParcels: " + e.getMessage());
         }
         System.out.println("tick " + currentTick + ": generating " + numParcelsToGenerate + " parcels.");
-
+        
         for (int i = 0; i < numParcelsToGenerate; i++) {
             String parcelID = "P" + currentTick + "-" + i + random.nextInt(1000);
             String destinationCity = cities.get(random.nextInt(cities.size()));
@@ -234,8 +222,7 @@ public class SimulationEngine {
                 }
                 System.out.println("  misrouted parcel: " + parcelToDispatch.getParcelID() + " -> " + parcelToDispatch.getDestinationCity() + " (status: returned, return count: " + parcelTracker.getReturnCount(parcelToDispatch.getParcelID()) + ")");
             } else {
-                // Dispatched
-                parcelsForCity.dequeue();
+                 parcelsForCity.dequeue();
                 parcelTracker.updateStatus(parcelToDispatch.getParcelID(), Status.Dispatched);
                 parcelTracker.setDispatchTick(parcelToDispatch.getParcelID(), currentTick);
                 try {
