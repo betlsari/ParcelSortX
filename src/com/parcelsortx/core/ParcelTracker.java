@@ -33,6 +33,18 @@ public class ParcelTracker {
 		this.dispatchedParcelCount = 0;
 		this.returnedParcelCount = 0;
 	}
+	public Entry find(String parcelID) {
+        int index = hash(parcelID);
+        Entry current = table[index];
+
+        while (current != null) {
+            if (current.key.equals(parcelID)) {
+                return current;
+            }
+            current = current.next;
+        }
+        return null;
+    }
 
 	private int hash(String key) {
 		return Math.abs(key.hashCode()) % TABLE_SIZE;
@@ -104,24 +116,8 @@ public class ParcelTracker {
     }
    
 
-	public void printTable() {
-		for (int i = 0; i < TABLE_SIZE; i++) {
-			Entry e = table[i];
-			if (e != null) {
-				System.out.print("Bucket " + i + ": ");
-				while (e != null) {
-					System.out.print("[" + e.key + " - " + e.value.getStatus() + "] -> ");
-					e = e.next;
-				}
-				System.out.println("null");
-			}
-		}
-	}
-
-	public int getReturnCount(String parcelID) {
-		Entry e = find(parcelID);
-		return (e != null) ? e.returnCount : 0;
-	}
+    
+	
 
 	public Parcel getMostDelayedParcel() {
 		Parcel mostDelayed = null;
