@@ -16,11 +16,16 @@ ParcelSortX simulates the package's progress cycle from the moment it is picked 
 
 The system is modular and composed of the following main components:
 
-- **ParcelManager**: Manages the creation and basic operations of cargoes. 
-- **DestinationSorter**: It uses Binary Search Tree (BST) to sort cargo by destination.**The DestinationSorterNode.java** class represents each node of the tree and contains the corresponding cargo list.    
-- **PriorityHandler**: Manages priority cargo with a stack data structure. **ReturnStackNode.java** represents each cargo unit in the stack.  
-- **HashTableTracker**: It uses a hash table to quickly locate and track cargo by its ID. It is implemented by the **ParcelTracker.java** class  
-- **CircularDeliveryList**: Simulates delivery routes using a circular linked list structure. It is implemented by the **TerminalRotator.java** class.    
+- **ParcelManager**: Manages the creation and basic operations of cargoes.
+  
+- **DestinationSorter**: It uses Binary Search Tree (BST) to sort cargo by destination.**The DestinationSorterNode.java** class represents each node of the tree and contains the corresponding cargo list.
+  
+- **PriorityHandler**: Manages priority cargo with a stack data structure. **ReturnStackNode.java** represents each cargo unit in the stack.
+  
+- **HashTableTracker**: It uses a hash table to quickly locate and track cargo by its ID. It is implemented by the **ParcelTracker.java** class
+  
+- **CircularDeliveryList**: Simulates delivery routes using a circular linked list structure. It is implemented by the **TerminalRotator.java** class.
+    
 - **SimulationController**: Starts and controls the entire simulation and ensures coordination between components. It is implemented by the **SimulationEngine.java** class.  
 
 ## :package: Data Structures Used
