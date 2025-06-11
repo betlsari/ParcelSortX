@@ -1,12 +1,20 @@
 package com.parcelsortx.simulation;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
+
 
 import com.parcelsortx.config.Config;
 import com.parcelsortx.core.*;
 import com.parcelsortx.model.Parcel;
 import com.parcelsortx.model.Parcel.Status;
 
-import java.io.*;
-import java.util.*;
+
 
 public class SimulationEngine {
  	private int currentTick;
@@ -265,23 +273,44 @@ public class SimulationEngine {
      
     
     public void logTickSummary(int currentTick, int dispatchedCount, int returnedCount) {
-		int queueSize = arrivalBuffer.size();
+       
+        int queueSize = arrivalBuffer.size();
         int stackSize = returnStack.size();
-        String activeTerminal = terminalRotator.getActiveTerminal();
+        String activeTerminal = terminalRotator.getActiveTerminal(); 
 
+        
+        if (activeTerminal == null) {
+            activeTerminal = "N/A";
+        }
         String summary = String.format(
             "[Tick %d] Queue: %d | ReturnStack: %d | Dispatched: %d | Returned: %d | Active Terminal: %s",
             currentTick, queueSize, stackSize, dispatchedCount, returnedCount, activeTerminal);
 
+        
         System.out.println(summary);
+        File logFile = new File("tick_log.txt");
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("tick_log.txt", true))) {
-            bw.write(summary);
-            bw.newLine();
+        try {
+           
+            List<String> lines = new ArrayList<>();
+            if (logFile.exists()) {
+                lines = Files.readAllLines(logFile.toPath());
+            }
+           
+            if (lines.size() >= 100) {
+                lines = lines.subList(lines.size() - 99, lines.size());
+            }
+
+            lines.add(summary);
+           
+            Files.write(logFile.toPath(), lines, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
         } catch (IOException e) {
+            System.err.println("Error writing to tick_log.txt:");
             e.printStackTrace();
         }
     }
+
+
     public void generateFinalReport() {
         try (PrintWriter writer = new PrintWriter(new FileWriter("report.txt"))) {
             writer.println("Final Report");
