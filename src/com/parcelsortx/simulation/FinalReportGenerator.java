@@ -5,7 +5,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
+
+import com.parcelsortx.model.Parcel;
 
 public class FinalReportGenerator {
     private int totalTicks;
@@ -56,7 +59,14 @@ public class FinalReportGenerator {
         this.parcelTrackerRecords = parcelTrackerRecords;
     }
 
-    public void generateReport(String filePath) {
+    public FinalReportGenerator(int totalTicks2, int totalParcelsGenerated2, int dispatchedCount, int returnedCount,
+			int remainingInQueue2, int remainingInQueue3, Map<String, Integer> parcelsPerCity2, String busiestCity,
+			long l, String longestDelayedParcelID2, int longestDelayTicks2, int returnedMoreThanOnce, int maxQueueSize2,
+			int maxStackSize2, int bstHeight, double hashTableLoadFactor2, List<Parcel> parcelTrackerRecords2) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void generateReport(String filePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             String dateStr = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd MMMM yyyy HH:mm"));
 

@@ -98,9 +98,9 @@ public class SimulationEngine {
         	    totalParcelsGenerated,
         	    dispatchedCount,
         	    returnedCount,
+        	    
         	    getRemainingInQueue(),
-        	    getRemainingInStack(),
-        	    getRemainingInBST(),
+        	    getRemainingInQueue(),
         	    parcelsPerCity,
         	    busiestCity,
         	    (processingParcelCount == 0 ? 0 : totalProcessingTime / processingParcelCount),
@@ -118,7 +118,12 @@ public class SimulationEngine {
         closeLogger();
     }
 
-     private void processTick() {
+     private int getRemainingInQueue() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	 private void processTick() {
         logHeader();
 
         generateParcels();
@@ -352,20 +357,7 @@ public class SimulationEngine {
             e.printStackTrace();
         }
     }
-    int delay = dispatchTick - arrivalTick;
-    if (delay > longestDelayTicks) {
-        longestDelayTicks = delay;
-        longestDelayedParcelID = parcel.getId();
-    }
-    totalProcessingTime += delay;
-    processingParcelCount++;
-    public void updateBusiestCity() {
-        busiestCity = parcelsPerCity.entrySet()
-                          .stream()
-                          .max(Map.Entry.comparingByValue())
-                          .map(Map.Entry::getKey)
-                          .orElse("N/A");
-    }
+
     
   
 
@@ -425,5 +417,4 @@ public class SimulationEngine {
         }
     }
 
-}}
-
+}
