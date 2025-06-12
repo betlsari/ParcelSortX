@@ -34,6 +34,28 @@ public class SimulationEngine {
     private Random random;
     private List<Parcel> allParcels;
     private BufferedWriter logWriter;
+    
+
+    private int totalTicks = 0;
+    private int totalParcelsGenerated = 0;
+    private int dispatchedCount = 0;
+    private int returnedCount = 0;
+    private int returnedMoreThanOnce = 0;
+    private int maxQueueSize = 0;
+    private int maxStackSize = 0;
+    private int bstHeight = 0;
+    private double hashTableLoadFactor = 0.0;
+
+    private Map<String, Integer> parcelsPerCity = new HashMap<>();
+    private String busiestCity = null;
+
+    private long totalProcessingTime = 0;
+    private int processingParcelCount = 0;
+    private String longestDelayedParcelID = null;
+    private int longestDelayTicks = -1;
+
+    private List<Parcel> parcelTrackerRecords = new ArrayList<>();
+
 
      public void initialize() {
         try {
@@ -71,7 +93,28 @@ public class SimulationEngine {
             processTick();
         }
 
-        //generateFinalReport();
+        FinalReportGenerator report = new FinalReportGenerator(
+        	    totalTicks,
+        	    totalParcelsGenerated,
+        	    dispatchedCount,
+        	    returnedCount,
+        	    getRemainingInQueue(),
+        	    getRemainingInStack(),
+        	    getRemainingInBST(),
+        	    parcelsPerCity,
+        	    busiestCity,
+        	    (processingParcelCount == 0 ? 0 : totalProcessingTime / processingParcelCount),
+        	    longestDelayedParcelID,
+        	    longestDelayTicks,
+        	    returnedMoreThanOnce,
+        	    maxQueueSize,
+        	    maxStackSize,
+        	    bstHeight,
+        	    hashTableLoadFactor,
+        	    parcelTrackerRecords
+        	);
+
+        	report.generateReport("report.txt");
         closeLogger();
     }
 
@@ -309,7 +352,24 @@ public class SimulationEngine {
             e.printStackTrace();
         }
     }
+    int delay = dispatchTick - arrivalTick;
+    if (delay > longestDelayTicks) {
+        longestDelayTicks = delay;
+        longestDelayedParcelID = parcel.getId();
+    }
+    totalProcessingTime += delay;
+    processingParcelCount++;
+    public void updateBusiestCity() {
+        busiestCity = parcelsPerCity.entrySet()
+                          .stream()
+                          .max(Map.Entry.comparingByValue())
+                          .map(Map.Entry::getKey)
+                          .orElse("N/A");
+    }
+    
+  
 
+    
 /*
     public void generateFinalReport() {
         try (PrintWriter writer = new PrintWriter(new FileWriter("report.txt"))) {
@@ -365,5 +425,5 @@ public class SimulationEngine {
         }
     }
 
-    
-}
+}}
+
