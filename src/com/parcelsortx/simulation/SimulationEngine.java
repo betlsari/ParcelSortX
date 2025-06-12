@@ -310,85 +310,51 @@ public class SimulationEngine {
         }
     }
 
-
+/*
     public void generateFinalReport() {
         try (PrintWriter writer = new PrintWriter(new FileWriter("report.txt"))) {
             writer.println("Final Report");
 
-            // Toplam işlenen kargolar
+            // Toplam işlenen kargo sayısı
             if (parcelTracker != null) {
                 writer.println("Total parcels processed: " + parcelTracker.getTotalParcels());
             } else {
                 writer.println("Total parcels processed: N/A (parcelTracker is null)");
             }
 
-            
+            // En yoğun destinasyon (en fazla kargo giden şehir)
             if (destinationSorter != null) {
                 String busiestCity = destinationSorter.getCityWithHighestParcelLoad();
                 if (busiestCity != null) {
                     writer.println("Busiest destination: " + busiestCity);
                 } else {
-                    writer.println("Busiest destination: no data");
+                    writer.println("Busiest destination: No data");
                 }
             } else {
                 writer.println("Busiest destination: destinationSorter is null");
             }
 
-            
+            // En çok gecikmiş kargo (geç teslim edilen)
             if (parcelTracker != null) {
-                Parcel delayed = parcelTracker.getMostDelayedParcel();
-                if (delayed != null) {
-                    writer.println("Longest delayed parcel: " + delayed.getTrackingNumber()
-                            + " Delay: " + delayed.getDelay() + " ticks");
+                Parcel mostDelayedParcel = parcelTracker.getMostDelayedParcel();
+                if (mostDelayedParcel != null) {
+                    int delay = mostDelayedParcel.getDispatchTick() - mostDelayedParcel.getArrivalTrick();
+                    writer.printf("Most delayed parcel: %s (Delay: %d ticks, Destination: %s)\n",
+                            mostDelayedParcel.getParcelID(), delay, mostDelayedParcel.getDestinationCity());
                 } else {
-                    writer.println("Longest delayed parcel:no delayed parcels");
+                    writer.println("Most delayed parcel: No delayed parcel found.");
                 }
             } else {
-                writer.println("Longest delayed parcel:parcelTracker is null");
+                writer.println("Most delayed parcel: parcelTracker is null");
             }
 
-        
-            if (arrivalBuffer != null) {
-                writer.println("Remaining in Queue: " + arrivalBuffer.size());
-            } else {
-                writer.println("Remaining in Queue:arrivalBuffer is null");
-            }
-
-            // ReturnStack'te kalan paketler
-            if (returnStack != null) {
-                writer.println("Remaining in ReturnStack: " + returnStack.size());
-            } else {
-                writer.println("Remaining in ReturnStack:returnStack is null");
-            }
-
-            // BST'de kalan paketler
-            if (destinationSorter != null) {
-                writer.println("Remaining in BST: " + destinationSorter.countAllParcels());
-            } else {
-                writer.println("Remaining in BST: N/A destinationSorter is null");
-            }
-
-            // Parcel Tracker kayıtları
-            writer.println("\nParcel Tracker's Records");
-            if (parcelTracker != null && parcelTracker.getAllParcelRecords() != null) {
-                for (String record : parcelTracker.getAllParcelRecords()) {
-                    if (record != null) {
-                        writer.println(record);
-                    }
-                }
-            } else {
-                writer.println("No parcel records available.");
-            }
-
-            writer.println("End");
-
+            writer.println("Report generated successfully.");
+            System.out.println("Final report generated.");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error generating final report: " + e.getMessage());
         }
+    } */
 
-        System.out.println("Final report generated. Log file closed.");
-    }
-    // Yardımcı dosya kapama
     private void closeLogger() {
         try {
             if (logWriter != null) {
