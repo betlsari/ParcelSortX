@@ -71,7 +71,7 @@ public class SimulationEngine {
             processTick();
         }
 
-        generateFinalReport();
+        //generateFinalReport();
         closeLogger();
     }
 
