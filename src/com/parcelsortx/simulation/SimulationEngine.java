@@ -34,28 +34,6 @@ public class SimulationEngine {
     private Random random;
     private List<Parcel> allParcels;
     private BufferedWriter logWriter;
-    
-
-    private int totalTicks = 0;
-    private int totalParcelsGenerated = 0;
-    private int dispatchedCount = 0;
-    private int returnedCount = 0;
-    private int returnedMoreThanOnce = 0;
-    private int maxQueueSize = 0;
-    private int maxStackSize = 0;
-    private int bstHeight = 0;
-    private double hashTableLoadFactor = 0.0;
-
-    private Map<String, Integer> parcelsPerCity = new HashMap<>();
-    private String busiestCity = null;
-
-    private long totalProcessingTime = 0;
-    private int processingParcelCount = 0;
-    private String longestDelayedParcelID = null;
-    private int longestDelayTicks = -1;
-
-    private List<Parcel> parcelTrackerRecords = new ArrayList<>();
-
 
      public void initialize() {
         try {
@@ -93,28 +71,7 @@ public class SimulationEngine {
             processTick();
         }
 
-        FinalReportGenerator report = new FinalReportGenerator(
-        	    totalTicks,
-        	    totalParcelsGenerated,
-        	    dispatchedCount,
-        	    returnedCount,
-        	    getRemainingInQueue(),
-        	    getRemainingInStack(),
-        	    getRemainingInBST(),
-        	    parcelsPerCity,
-        	    busiestCity,
-        	    (processingParcelCount == 0 ? 0 : totalProcessingTime / processingParcelCount),
-        	    longestDelayedParcelID,
-        	    longestDelayTicks,
-        	    returnedMoreThanOnce,
-        	    maxQueueSize,
-        	    maxStackSize,
-        	    bstHeight,
-        	    hashTableLoadFactor,
-        	    parcelTrackerRecords
-        	);
-
-        	report.generateReport("report.txt");
+        generateFinalReport();
         closeLogger();
     }
 
@@ -352,69 +309,86 @@ public class SimulationEngine {
             e.printStackTrace();
         }
     }
-    int delay = dispatchTick - arrivalTick;
-    if (delay > longestDelayTicks) {
-        longestDelayTicks = delay;
-        longestDelayedParcelID = parcel.getId();
-    }
-    totalProcessingTime += delay;
-    processingParcelCount++;
-    public void updateBusiestCity() {
-        busiestCity = parcelsPerCity.entrySet()
-                          .stream()
-                          .max(Map.Entry.comparingByValue())
-                          .map(Map.Entry::getKey)
-                          .orElse("N/A");
-    }
-    
-  
 
-    
-/*
+
     public void generateFinalReport() {
         try (PrintWriter writer = new PrintWriter(new FileWriter("report.txt"))) {
             writer.println("Final Report");
 
-            // Toplam işlenen kargo sayısı
+            // Toplam işlenen kargolar
             if (parcelTracker != null) {
                 writer.println("Total parcels processed: " + parcelTracker.getTotalParcels());
             } else {
                 writer.println("Total parcels processed: N/A (parcelTracker is null)");
             }
 
-            // En yoğun destinasyon (en fazla kargo giden şehir)
+            
             if (destinationSorter != null) {
                 String busiestCity = destinationSorter.getCityWithHighestParcelLoad();
                 if (busiestCity != null) {
                     writer.println("Busiest destination: " + busiestCity);
                 } else {
-                    writer.println("Busiest destination: No data");
+                    writer.println("Busiest destination: no data");
                 }
             } else {
                 writer.println("Busiest destination: destinationSorter is null");
             }
 
-            // En çok gecikmiş kargo (geç teslim edilen)
+            
             if (parcelTracker != null) {
-                Parcel mostDelayedParcel = parcelTracker.getMostDelayedParcel();
-                if (mostDelayedParcel != null) {
-                    int delay = mostDelayedParcel.getDispatchTick() - mostDelayedParcel.getArrivalTrick();
-                    writer.printf("Most delayed parcel: %s (Delay: %d ticks, Destination: %s)\n",
-                            mostDelayedParcel.getParcelID(), delay, mostDelayedParcel.getDestinationCity());
+                Parcel delayed = parcelTracker.getMostDelayedParcel();
+                if (delayed != null) {
+                    writer.println("Longest delayed parcel: " + delayed.getTrackingNumber()
+                            + " Delay: " + delayed.getDelay() + " ticks");
                 } else {
-                    writer.println("Most delayed parcel: No delayed parcel found.");
+                    writer.println("Longest delayed parcel:no delayed parcels");
                 }
             } else {
-                writer.println("Most delayed parcel: parcelTracker is null");
+                writer.println("Longest delayed parcel:parcelTracker is null");
             }
 
-            writer.println("Report generated successfully.");
-            System.out.println("Final report generated.");
-        } catch (IOException e) {
-            System.err.println("Error generating final report: " + e.getMessage());
-        }
-    } */
+        
+            if (arrivalBuffer != null) {
+                writer.println("Remaining in Queue: " + arrivalBuffer.size());
+            } else {
+                writer.println("Remaining in Queue:arrivalBuffer is null");
+            }
 
+            // ReturnStack'te kalan paketler
+            if (returnStack != null) {
+                writer.println("Remaining in ReturnStack: " + returnStack.size());
+            } else {
+                writer.println("Remaining in ReturnStack:returnStack is null");
+            }
+
+            // BST'de kalan paketler
+            if (destinationSorter != null) {
+                writer.println("Remaining in BST: " + destinationSorter.countAllParcels());
+            } else {
+                writer.println("Remaining in BST: N/A destinationSorter is null");
+            }
+
+            // Parcel Tracker kayıtları
+            writer.println("\nParcel Tracker's Records");
+            if (parcelTracker != null && parcelTracker.getAllParcelRecords() != null) {
+                for (String record : parcelTracker.getAllParcelRecords()) {
+                    if (record != null) {
+                        writer.println(record);
+                    }
+                }
+            } else {
+                writer.println("No parcel records available.");
+            }
+
+            writer.println("End");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Final report generated. Log file closed.");
+    }
+    // Yardımcı dosya kapama
     private void closeLogger() {
         try {
             if (logWriter != null) {
@@ -425,5 +399,7 @@ public class SimulationEngine {
         }
     }
 
-}}
+    
+}
+
 
